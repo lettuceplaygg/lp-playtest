@@ -1,0 +1,246 @@
+{
+  "schemaVersion": "0.1",
+  "note": "Local P0 registry. Operator-authored. In P1 this is served by the catalog API and every entry carries a content hash.",
+  "games": [
+    {
+      "gameId": "sprout-speedway",
+      "version": 1,
+      "title": "Sprout Speedway",
+      "summary": "A three-lap car race round a big floating loop: launch over the gap, ride the hills, hit the speed strip. Race your friends in a party.",
+      "path": "games/sprout-speedway/v1/manifest.json",
+      "genre": "racing",
+      "tags": [
+        "racing",
+        "driving",
+        "versus",
+        "party",
+        "quick"
+      ]
+    },
+    {
+      "gameId": "garden-dash",
+      "version": 1,
+      "title": "Garden Dash",
+      "summary": "Collect five seeds and reach the exit. About a minute.",
+      "path": "games/garden-dash/v1/manifest.json",
+      "genre": "collect",
+      "tags": [
+        "collecting",
+        "exploring",
+        "quick",
+        "chill"
+      ]
+    },
+    {
+      "gameId": "checkpoint-trial",
+      "version": 1,
+      "title": "Rooftop Run",
+      "summary": "Four checkpoints, one clock, no safety net.",
+      "path": "games/checkpoint-trial/v1/manifest.json",
+      "genre": "obby",
+      "tags": [
+        "parkour",
+        "quick",
+        "high-score"
+      ]
+    },
+    {
+      "gameId": "sky-tycoon",
+      "version": 1,
+      "title": "Sky Tycoon",
+      "summary": "Run three droppers on a floating plot, buy upgrades, then buy the crown to open the exit. Your plot is kept between visits.",
+      "path": "games/sky-tycoon/v1/manifest.json",
+      "genre": "tycoon",
+      "tags": [
+        "tycoon",
+        "collecting",
+        "chill"
+      ]
+    },
+    {
+      "gameId": "blaster-bay",
+      "version": 1,
+      "title": "Blaster Bay",
+      "summary": "A beach range with targets, patrolling crabs and a turret on the tower. Score 100 points to open the exit.",
+      "path": "games/blaster-bay/v1/manifest.json",
+      "genre": "shooter",
+      "tags": [
+        "shooting",
+        "enemies",
+        "high-score",
+        "boss"
+      ]
+    },
+    {
+      "gameId": "launch-leap",
+      "version": 1,
+      "title": "Launch Pad Leap",
+      "summary": "Launch pads, lifts and a pocket of floaty air. Hit four checkpoints in order and reach the summit.",
+      "path": "games/launch-leap/v1/manifest.json",
+      "genre": "obby",
+      "tags": [
+        "parkour",
+        "exploring"
+      ]
+    },
+    {
+      "gameId": "lava-escape",
+      "version": 1,
+      "title": "Lava Escape",
+      "summary": "Hop the stones over lava, run the spiky bridge and climb to the tower. Three hearts, three lives.",
+      "path": "games/lava-escape/v1/manifest.json",
+      "genre": "obby",
+      "tags": [
+        "parkour",
+        "survival"
+      ]
+    },
+    {
+      "gameId": "coin-frenzy",
+      "version": 1,
+      "title": "Seed Frenzy",
+      "summary": "Sixty seconds, eighteen seeds, three launch pads. Grab 300 points to win, or set a best score.",
+      "path": "games/coin-frenzy/v1/manifest.json",
+      "genre": "score",
+      "tags": [
+        "collecting",
+        "high-score",
+        "quick",
+        "parkour"
+      ]
+    },
+    {
+      "gameId": "teleport-towers",
+      "version": 1,
+      "title": "Teleport Towers",
+      "summary": "Five floating towers, five teleporters, six seeds. Collect them all, then reach the exit at the hub.",
+      "path": "games/teleport-towers/v1/manifest.json",
+      "genre": "collect",
+      "tags": [
+        "collecting",
+        "exploring",
+        "puzzle"
+      ]
+    },
+    {
+      "gameId": "hollow-house",
+      "version": 1,
+      "title": "Hollow House",
+      "summary": "A dark house, a flashlight and five candles. The front door shuts behind you until you find them all. Spooky, with sudden sounds.",
+      "path": "games/hollow-house/v1/manifest.json",
+      "genre": "horror",
+      "tags": [
+        "scary",
+        "exploring",
+        "puzzle",
+        "story"
+      ]
+    },
+    {
+      "gameId": "sky-circuit",
+      "version": 1,
+      "title": "Sky Circuit",
+      "summary": "A three-lap race round a floating loop: four gates, a launch over the gap, a speed strip and bumpers. Race your friends in a party.",
+      "path": "games/sky-circuit/v1/manifest.json",
+      "genre": "racing",
+      "tags": [
+        "racing",
+        "driving",
+        "versus",
+        "party",
+        "quick"
+      ]
+    },
+    {
+      "gameId": "seed-squad",
+      "version": 1,
+      "title": "Seed Squad",
+      "summary": "Three rounds of 45 seconds: grab seeds for your team. Points add up over the rounds. Best with a party.",
+      "path": "games/seed-squad/v1/manifest.json",
+      "genre": "score",
+      "tags": [
+        "collecting",
+        "teams",
+        "party",
+        "rounds",
+        "high-score"
+      ]
+    },
+    {
+      "gameId": "plot-tycoon",
+      "version": 1,
+      "title": "Plot Tycoon",
+      "summary": "Four plots, one each: join any time, run your droppers, buy upgrades and a crown. Your plot is kept between visits.",
+      "path": "games/plot-tycoon/v1/manifest.json",
+      "genre": "tycoon",
+      "tags": [
+        "tycoon",
+        "party",
+        "chill",
+        "versus"
+      ]
+    },
+    {
+      "gameId": "tag-island",
+      "version": 1,
+      "title": "Tag Island",
+      "summary": "Party tag over three rounds: walls to dodge round, launch pads and a teleporter. Least time as \"it\" wins. Needs a party.",
+      "path": "games/tag-island/v1/manifest.json",
+      "genre": "collect",
+      "tags": [
+        "tag",
+        "party",
+        "rounds",
+        "versus",
+        "funny"
+      ]
+    },
+    {
+      "gameId": "hide-seek-woods",
+      "version": 1,
+      "title": "Hide and Seek Woods",
+      "summary": "Party hide-and-seek: huts, walls, crates, a lookout tower and a lot of trees. Found players join the seekers. Needs a party.",
+      "path": "games/hide-seek-woods/v1/manifest.json",
+      "genre": "collect",
+      "tags": [
+        "hide-seek",
+        "party",
+        "rounds",
+        "funny"
+      ]
+    },
+    {
+      "gameId": "vault-run",
+      "version": 1,
+      "title": "Vault Run",
+      "summary": "Find the red key, clear two crab waves for the gold key, and crack the vault. Objectives tick off as you go.",
+      "path": "games/vault-run/v1/manifest.json",
+      "genre": "shooter",
+      "tags": [
+        "shooting",
+        "enemies",
+        "puzzle",
+        "story",
+        "survival"
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "assetId": "vop-primitive-v0",
+      "status": "approved",
+      "source": "primitive",
+      "label": "Placeholder Vop",
+      "note": "Operator-built from Three.js primitives to the approved look (C02/C03). Not the Meshy asset."
+    },
+    {
+      "assetId": "vop-yellow-static-v1",
+      "status": "pending",
+      "source": "glb",
+      "path": null,
+      "sha256": null,
+      "fallbackAssetId": "vop-primitive-v0",
+      "note": "Blocked on T07 cleanup export and the licence check in docs/REVIEW_2026-10-27.md B02."
+    }
+  ]
+}

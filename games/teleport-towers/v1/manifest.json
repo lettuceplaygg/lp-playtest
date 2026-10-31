@@ -1,0 +1,481 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "teleport-towers",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Teleport Towers",
+  "templateId": "collect-and-exit-v1",
+  "description": "Five floating towers, five teleporters, six seeds. Collect them all, then reach the exit at the hub.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [],
+  "spawn": [
+    0,
+    0.5,
+    5
+  ],
+  "spawnYaw": 3.141592653589793,
+  "sky": "day",
+  "style": "frost",
+  "entities": [
+    {
+      "id": "hub",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        0
+      ],
+      "size": [
+        12,
+        1,
+        12
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "tree-h",
+      "kind": "prop",
+      "position": [
+        -4,
+        0,
+        4
+      ],
+      "shape": "tree",
+      "scale": 0.8,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "lamp-h",
+      "kind": "prop",
+      "position": [
+        4,
+        0,
+        4
+      ],
+      "shape": "lamp",
+      "scale": 1,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "tower-a",
+      "kind": "box",
+      "position": [
+        -16,
+        5.5,
+        -10
+      ],
+      "size": [
+        5,
+        1,
+        5
+      ],
+      "solid": true,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "pillar-a",
+      "kind": "box",
+      "position": [
+        -16,
+        2.5,
+        -10
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "solid": false,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "seed-a",
+      "kind": "pickup",
+      "position": [
+        -16,
+        6.6,
+        -11
+      ],
+      "value": 1
+    },
+    {
+      "id": "tp-a",
+      "kind": "teleporter",
+      "position": [
+        0,
+        0,
+        -4
+      ],
+      "radius": 0.8,
+      "to": [
+        -16,
+        6.5,
+        -9
+      ]
+    },
+    {
+      "id": "back-a",
+      "kind": "teleporter",
+      "position": [
+        -14.5,
+        6,
+        -8.5
+      ],
+      "radius": 0.8,
+      "to": [
+        0,
+        0.5,
+        2
+      ]
+    },
+    {
+      "id": "tower-b",
+      "kind": "box",
+      "position": [
+        0,
+        8.5,
+        -20
+      ],
+      "size": [
+        5,
+        1,
+        5
+      ],
+      "solid": true,
+      "color": "#c9b3ff"
+    },
+    {
+      "id": "pillar-b",
+      "kind": "box",
+      "position": [
+        0,
+        4,
+        -20
+      ],
+      "size": [
+        2,
+        8,
+        2
+      ],
+      "solid": false,
+      "color": "#c9b3ff"
+    },
+    {
+      "id": "seed-b",
+      "kind": "pickup",
+      "position": [
+        0,
+        9.6,
+        -21
+      ],
+      "value": 1
+    },
+    {
+      "id": "tp-b",
+      "kind": "teleporter",
+      "position": [
+        4,
+        0,
+        -1
+      ],
+      "radius": 0.8,
+      "to": [
+        0,
+        9.5,
+        -19
+      ]
+    },
+    {
+      "id": "back-b",
+      "kind": "teleporter",
+      "position": [
+        1.5,
+        9,
+        -18.5
+      ],
+      "radius": 0.8,
+      "to": [
+        0,
+        0.5,
+        2
+      ]
+    },
+    {
+      "id": "tower-c",
+      "kind": "box",
+      "position": [
+        16,
+        5.5,
+        -10
+      ],
+      "size": [
+        5,
+        1,
+        5
+      ],
+      "solid": true,
+      "color": "#8ec5ff"
+    },
+    {
+      "id": "pillar-c",
+      "kind": "box",
+      "position": [
+        16,
+        2.5,
+        -10
+      ],
+      "size": [
+        2,
+        5,
+        2
+      ],
+      "solid": false,
+      "color": "#8ec5ff"
+    },
+    {
+      "id": "seed-c",
+      "kind": "pickup",
+      "position": [
+        16,
+        6.6,
+        -11
+      ],
+      "value": 1
+    },
+    {
+      "id": "tp-c",
+      "kind": "teleporter",
+      "position": [
+        2.5,
+        0,
+        3
+      ],
+      "radius": 0.8,
+      "to": [
+        16,
+        6.5,
+        -9
+      ]
+    },
+    {
+      "id": "back-c",
+      "kind": "teleporter",
+      "position": [
+        17.5,
+        6,
+        -8.5
+      ],
+      "radius": 0.8,
+      "to": [
+        0,
+        0.5,
+        2
+      ]
+    },
+    {
+      "id": "tower-d",
+      "kind": "box",
+      "position": [
+        16,
+        3.5,
+        12
+      ],
+      "size": [
+        5,
+        1,
+        5
+      ],
+      "solid": true,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "pillar-d",
+      "kind": "box",
+      "position": [
+        16,
+        1.5,
+        12
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "solid": false,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "seed-d",
+      "kind": "pickup",
+      "position": [
+        16,
+        4.6,
+        11
+      ],
+      "value": 1
+    },
+    {
+      "id": "tp-d",
+      "kind": "teleporter",
+      "position": [
+        -2.5,
+        0,
+        3
+      ],
+      "radius": 0.8,
+      "to": [
+        16,
+        4.5,
+        13
+      ]
+    },
+    {
+      "id": "back-d",
+      "kind": "teleporter",
+      "position": [
+        17.5,
+        4,
+        13.5
+      ],
+      "radius": 0.8,
+      "to": [
+        0,
+        0.5,
+        2
+      ]
+    },
+    {
+      "id": "tower-e",
+      "kind": "box",
+      "position": [
+        -16,
+        3.5,
+        12
+      ],
+      "size": [
+        5,
+        1,
+        5
+      ],
+      "solid": true,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "pillar-e",
+      "kind": "box",
+      "position": [
+        -16,
+        1.5,
+        12
+      ],
+      "size": [
+        2,
+        3,
+        2
+      ],
+      "solid": false,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "seed-e",
+      "kind": "pickup",
+      "position": [
+        -16,
+        4.6,
+        11
+      ],
+      "value": 1
+    },
+    {
+      "id": "tp-e",
+      "kind": "teleporter",
+      "position": [
+        -4,
+        0,
+        -1
+      ],
+      "radius": 0.8,
+      "to": [
+        -16,
+        4.5,
+        13
+      ]
+    },
+    {
+      "id": "back-e",
+      "kind": "teleporter",
+      "position": [
+        -14.5,
+        4,
+        13.5
+      ],
+      "radius": 0.8,
+      "to": [
+        0,
+        0.5,
+        2
+      ]
+    },
+    {
+      "id": "seed-hub",
+      "kind": "pickup",
+      "position": [
+        0,
+        0.6,
+        -2
+      ],
+      "value": 1
+    },
+    {
+      "id": "exit-1",
+      "kind": "goal",
+      "position": [
+        0,
+        0.5,
+        0
+      ],
+      "radius": 1.2
+    },
+    {
+      "id": "sign-1",
+      "kind": "sign",
+      "position": [
+        0,
+        0,
+        3
+      ],
+      "text": "Each purple pad sends you to a tower with a seed. The pad on the tower brings you back. Collect all six.",
+      "radius": 2.5
+    }
+  ],
+  "rules": {
+    "mode": "collect",
+    "requiredPickupValue": 6,
+    "timeLimitSeconds": 180,
+    "fallBelowY": -6,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": false,
+    "health": 0,
+    "lives": 0
+  }
+}

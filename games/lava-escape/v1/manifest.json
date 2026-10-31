@@ -1,0 +1,364 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "lava-escape",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Lava Escape",
+  "templateId": "free-play-v1",
+  "description": "Hop the stones over lava, run the spiky bridge and climb to the tower. Three hearts, three lives.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [
+    {
+      "from": "trap-zone",
+      "event": "entered",
+      "to": "trap-fuse",
+      "action": "start"
+    },
+    {
+      "from": "trap-fuse",
+      "event": "done",
+      "to": "trap-spikes",
+      "action": "show"
+    },
+    {
+      "from": "trap-fuse",
+      "event": "done",
+      "to": "trap-cool",
+      "action": "start"
+    },
+    {
+      "from": "trap-cool",
+      "event": "done",
+      "to": "trap-spikes",
+      "action": "hide"
+    },
+    {
+      "from": "trap-cool",
+      "event": "done",
+      "to": "trap-fuse",
+      "action": "reset"
+    }
+  ],
+  "spawn": [
+    0,
+    0.5,
+    13
+  ],
+  "spawnYaw": 3.141592653589793,
+  "sky": "night",
+  "entities": [
+    {
+      "id": "start",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        12
+      ],
+      "size": [
+        8,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "lava-floor",
+      "kind": "hazard",
+      "position": [
+        0,
+        -0.8,
+        -4
+      ],
+      "size": [
+        30,
+        0.4,
+        26
+      ],
+      "damage": 1
+    },
+    {
+      "id": "bed",
+      "kind": "box",
+      "position": [
+        0,
+        -1.5,
+        -4
+      ],
+      "size": [
+        30,
+        1,
+        26
+      ],
+      "solid": true,
+      "color": "#3b4a6b"
+    },
+    {
+      "id": "stone-1",
+      "kind": "box",
+      "position": [
+        -2,
+        0,
+        6
+      ],
+      "size": [
+        2,
+        1,
+        2
+      ],
+      "solid": true,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "stone-2",
+      "kind": "box",
+      "position": [
+        1.5,
+        0,
+        3
+      ],
+      "size": [
+        2,
+        1,
+        2
+      ],
+      "solid": true,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "stone-3",
+      "kind": "box",
+      "position": [
+        -1,
+        0.5,
+        0
+      ],
+      "size": [
+        2,
+        1,
+        2
+      ],
+      "solid": true,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "stone-4",
+      "kind": "box",
+      "position": [
+        2.5,
+        1,
+        -3
+      ],
+      "size": [
+        2,
+        1,
+        2
+      ],
+      "solid": true,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "bridge",
+      "kind": "box",
+      "position": [
+        0,
+        1,
+        -7
+      ],
+      "size": [
+        8,
+        1,
+        2
+      ],
+      "solid": true,
+      "color": "#c99a6b"
+    },
+    {
+      "id": "trap-zone",
+      "kind": "zone",
+      "position": [
+        0,
+        2.5,
+        -7
+      ],
+      "size": [
+        8,
+        2,
+        2
+      ],
+      "holdSeconds": 0
+    },
+    {
+      "id": "trap-fuse",
+      "kind": "timer",
+      "position": [
+        5,
+        1.5,
+        -7
+      ],
+      "seconds": 1,
+      "autoStart": false,
+      "loop": false
+    },
+    {
+      "id": "trap-spikes",
+      "kind": "hazard",
+      "position": [
+        0,
+        1.7,
+        -7
+      ],
+      "size": [
+        8,
+        0.4,
+        2
+      ],
+      "damage": 1,
+      "hidden": true
+    },
+    {
+      "id": "trap-cool",
+      "kind": "timer",
+      "position": [
+        5,
+        1.5,
+        -6
+      ],
+      "seconds": 2,
+      "autoStart": false,
+      "loop": false
+    },
+    {
+      "id": "landing",
+      "kind": "box",
+      "position": [
+        0,
+        1,
+        -12
+      ],
+      "size": [
+        8,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "stairs-1",
+      "kind": "prop",
+      "position": [
+        0,
+        1.5,
+        -15.5
+      ],
+      "shape": "stairs",
+      "scale": 2,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "tower-top",
+      "kind": "box",
+      "position": [
+        0,
+        4,
+        -19
+      ],
+      "size": [
+        6,
+        1,
+        4
+      ],
+      "solid": true,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "lamp-1",
+      "kind": "prop",
+      "position": [
+        -3,
+        1.5,
+        -12
+      ],
+      "shape": "lamp",
+      "scale": 1,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "lamp-2",
+      "kind": "prop",
+      "position": [
+        3,
+        1.5,
+        -12
+      ],
+      "shape": "lamp",
+      "scale": 1,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "med-1",
+      "kind": "item",
+      "position": [
+        0,
+        1.5,
+        -11
+      ],
+      "radius": 0.8,
+      "item": "heart",
+      "amount": 2,
+      "respawnSeconds": 0
+    },
+    {
+      "id": "sign-1",
+      "kind": "sign",
+      "position": [
+        2.5,
+        0,
+        11
+      ],
+      "text": "The floor is lava: it costs a heart. Hop the stones. Spikes pop up on the bridge, so keep moving!",
+      "radius": 2.5
+    },
+    {
+      "id": "exit-1",
+      "kind": "goal",
+      "position": [
+        0,
+        5,
+        -20
+      ],
+      "radius": 1.2
+    }
+  ],
+  "rules": {
+    "mode": "free",
+    "requiredPickupValue": 0,
+    "timeLimitSeconds": 150,
+    "fallBelowY": -6,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": false,
+    "health": 3,
+    "lives": 3
+  }
+}

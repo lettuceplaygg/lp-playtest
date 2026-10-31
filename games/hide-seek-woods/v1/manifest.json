@@ -1,0 +1,444 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "hide-seek-woods",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Hide and Seek Woods",
+  "templateId": "free-play-v1",
+  "description": "Party hide-and-seek: huts, walls, crates, a lookout tower and a lot of trees. Found players join the seekers. Needs a party.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [],
+  "spawn": [
+    0,
+    0.5,
+    0
+  ],
+  "spawnYaw": 3.141592653589793,
+  "sky": "sunset",
+  "entities": [
+    {
+      "id": "woods",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        0
+      ],
+      "size": [
+        40,
+        1,
+        40
+      ],
+      "solid": true,
+      "color": "#5f9a4d"
+    },
+    {
+      "id": "hut-1",
+      "kind": "box",
+      "position": [
+        -12,
+        1.5,
+        -10
+      ],
+      "size": [
+        5,
+        3,
+        4
+      ],
+      "solid": true,
+      "color": "#c99a6b",
+      "finish": "wood"
+    },
+    {
+      "id": "hut-2",
+      "kind": "box",
+      "position": [
+        12,
+        1.5,
+        10
+      ],
+      "size": [
+        4,
+        3,
+        5
+      ],
+      "solid": true,
+      "color": "#c99a6b",
+      "finish": "wood"
+    },
+    {
+      "id": "hut-roof-1",
+      "kind": "box",
+      "position": [
+        -12,
+        3.25,
+        -10
+      ],
+      "size": [
+        5.6,
+        0.5,
+        4.6
+      ],
+      "solid": true,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "hut-roof-2",
+      "kind": "box",
+      "position": [
+        12,
+        3.25,
+        10
+      ],
+      "size": [
+        4.6,
+        0.5,
+        5.6
+      ],
+      "solid": true,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "wall-a",
+      "kind": "box",
+      "position": [
+        4,
+        1,
+        -6
+      ],
+      "size": [
+        8,
+        2,
+        0.6
+      ],
+      "solid": true,
+      "color": "#9aa7b8",
+      "finish": "stone"
+    },
+    {
+      "id": "wall-b",
+      "kind": "box",
+      "position": [
+        -6,
+        1,
+        6
+      ],
+      "size": [
+        0.6,
+        2,
+        8
+      ],
+      "solid": true,
+      "color": "#9aa7b8",
+      "finish": "stone"
+    },
+    {
+      "id": "crates",
+      "kind": "box",
+      "position": [
+        9,
+        0.75,
+        -12
+      ],
+      "size": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "solid": true,
+      "color": "#c99a6b",
+      "finish": "wood"
+    },
+    {
+      "id": "crates-2",
+      "kind": "box",
+      "position": [
+        10.5,
+        0.75,
+        -12
+      ],
+      "size": [
+        1.5,
+        1.5,
+        1.5
+      ],
+      "solid": true,
+      "color": "#c99a6b",
+      "finish": "wood"
+    },
+    {
+      "id": "tower-deck",
+      "kind": "box",
+      "position": [
+        -14,
+        4,
+        14
+      ],
+      "size": [
+        4,
+        0.5,
+        4
+      ],
+      "solid": true,
+      "color": "#c99a6b",
+      "finish": "wood"
+    },
+    {
+      "id": "tower-stairs",
+      "kind": "prop",
+      "position": [
+        -14,
+        0,
+        10.5
+      ],
+      "shape": "stairs",
+      "scale": 1.6,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "tag",
+      "kind": "tag",
+      "position": [
+        17,
+        0,
+        -17
+      ],
+      "mode": "hide",
+      "seconds": 120,
+      "hideSeconds": 15
+    },
+    {
+      "id": "sign-1",
+      "kind": "sign",
+      "position": [
+        0,
+        0,
+        3
+      ],
+      "text": "Hide and seek! One seeker counts to 15, then hunts. Found players help seek.",
+      "radius": 2.5
+    },
+    {
+      "id": "tree-1",
+      "kind": "prop",
+      "position": [
+        7,
+        0,
+        0
+      ],
+      "shape": "bush",
+      "scale": 1,
+      "color": "#3f8f4a"
+    },
+    {
+      "id": "tree-2",
+      "kind": "prop",
+      "position": [
+        -7.5,
+        0,
+        7
+      ],
+      "shape": "tree",
+      "scale": 1.25,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-3",
+      "kind": "prop",
+      "position": [
+        1,
+        0,
+        -13.5
+      ],
+      "shape": "tree",
+      "scale": 1.5,
+      "color": "#3f8f4a"
+    },
+    {
+      "id": "tree-4",
+      "kind": "prop",
+      "position": [
+        10,
+        0,
+        13
+      ],
+      "shape": "bush",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-5",
+      "kind": "prop",
+      "position": [
+        -7,
+        0,
+        -1
+      ],
+      "shape": "tree",
+      "scale": 1.25,
+      "color": "#3f8f4a"
+    },
+    {
+      "id": "tree-6",
+      "kind": "prop",
+      "position": [
+        8.5,
+        0,
+        -5.5
+      ],
+      "shape": "tree",
+      "scale": 1.5,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-7",
+      "kind": "prop",
+      "position": [
+        -3.5,
+        0,
+        13
+      ],
+      "shape": "bush",
+      "scale": 1,
+      "color": "#3f8f4a"
+    },
+    {
+      "id": "tree-8",
+      "kind": "prop",
+      "position": [
+        -7.5,
+        0,
+        -14.5
+      ],
+      "shape": "tree",
+      "scale": 1.25,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-9",
+      "kind": "prop",
+      "position": [
+        6.5,
+        0,
+        2.5
+      ],
+      "shape": "tree",
+      "scale": 1.5,
+      "color": "#3f8f4a"
+    },
+    {
+      "id": "tree-10",
+      "kind": "prop",
+      "position": [
+        -9.5,
+        0,
+        4
+      ],
+      "shape": "bush",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-11",
+      "kind": "prop",
+      "position": [
+        5.5,
+        0,
+        -12
+      ],
+      "shape": "tree",
+      "scale": 1.25,
+      "color": "#3f8f4a"
+    },
+    {
+      "id": "tree-12",
+      "kind": "prop",
+      "position": [
+        5,
+        0,
+        16
+      ],
+      "shape": "tree",
+      "scale": 1.5,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-13",
+      "kind": "prop",
+      "position": [
+        -6,
+        0,
+        -3.5
+      ],
+      "shape": "bush",
+      "scale": 1,
+      "color": "#3f8f4a"
+    },
+    {
+      "id": "tree-14",
+      "kind": "prop",
+      "position": [
+        10,
+        0,
+        -2
+      ],
+      "shape": "tree",
+      "scale": 1.25,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-15",
+      "kind": "prop",
+      "position": [
+        -7.5,
+        0,
+        11
+      ],
+      "shape": "tree",
+      "scale": 1.5,
+      "color": "#3f8f4a"
+    },
+    {
+      "id": "tree-16",
+      "kind": "prop",
+      "position": [
+        -2,
+        0,
+        -16.5
+      ],
+      "shape": "bush",
+      "scale": 1,
+      "color": "#5fb55a"
+    }
+  ],
+  "rules": {
+    "mode": "free",
+    "requiredPickupValue": 0,
+    "timeLimitSeconds": 0,
+    "fallBelowY": -6,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": false,
+    "health": 0,
+    "lives": 0,
+    "join": "nextRound"
+  }
+}

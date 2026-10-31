@@ -1,0 +1,497 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "blaster-bay",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Blaster Bay",
+  "templateId": "free-play-v1",
+  "description": "A beach range with targets, patrolling crabs and a turret on the tower. Score 100 points to open the exit.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [
+    {
+      "from": "t1",
+      "event": "destroyed",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "t2",
+      "event": "destroyed",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "t3",
+      "event": "destroyed",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "t4",
+      "event": "destroyed",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "crab-1",
+      "event": "destroyed",
+      "to": "points",
+      "action": "award",
+      "value": 25
+    },
+    {
+      "from": "crab-2",
+      "event": "destroyed",
+      "to": "points",
+      "action": "award",
+      "value": 25
+    },
+    {
+      "from": "crab-3",
+      "event": "destroyed",
+      "to": "points",
+      "action": "award",
+      "value": 25
+    },
+    {
+      "from": "points",
+      "event": "reached",
+      "to": "exit-1",
+      "action": "show"
+    },
+    {
+      "from": "points",
+      "event": "reached",
+      "to": "sign-open",
+      "action": "say"
+    },
+    {
+      "from": "points",
+      "event": "reached",
+      "to": "speaker-1",
+      "action": "play"
+    },
+    {
+      "from": "points",
+      "event": "reached",
+      "to": "turret-1",
+      "action": "stop"
+    }
+  ],
+  "spawn": [
+    0,
+    0.5,
+    13
+  ],
+  "spawnYaw": 3.141592653589793,
+  "sky": "day",
+  "entities": [
+    {
+      "id": "beach",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        0
+      ],
+      "size": [
+        30,
+        1,
+        30
+      ],
+      "solid": true,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "grass",
+      "kind": "box",
+      "position": [
+        0,
+        -0.48,
+        8
+      ],
+      "size": [
+        30,
+        1,
+        14
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "dock",
+      "kind": "box",
+      "position": [
+        9,
+        0.25,
+        -9
+      ],
+      "size": [
+        8,
+        0.5,
+        6
+      ],
+      "solid": true,
+      "color": "#c99a6b"
+    },
+    {
+      "id": "cover-1",
+      "kind": "box",
+      "position": [
+        -4,
+        0.75,
+        2
+      ],
+      "size": [
+        3,
+        1.5,
+        0.6
+      ],
+      "solid": true,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "cover-2",
+      "kind": "box",
+      "position": [
+        5,
+        0.75,
+        1
+      ],
+      "size": [
+        3,
+        1.5,
+        0.6
+      ],
+      "solid": true,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "cover-3",
+      "kind": "box",
+      "position": [
+        0,
+        0.75,
+        -4
+      ],
+      "size": [
+        4,
+        1.5,
+        0.6
+      ],
+      "solid": true,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "tower-base",
+      "kind": "box",
+      "position": [
+        -9,
+        2,
+        -9
+      ],
+      "size": [
+        4,
+        4,
+        4
+      ],
+      "solid": true,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "stairs-t",
+      "kind": "prop",
+      "position": [
+        -9,
+        0,
+        -3.5
+      ],
+      "shape": "stairs",
+      "scale": 2.67,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "palm-1",
+      "kind": "prop",
+      "position": [
+        12,
+        0,
+        6
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "palm-2",
+      "kind": "prop",
+      "position": [
+        -12,
+        0,
+        10
+      ],
+      "shape": "tree",
+      "scale": 1.2,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "rock-1",
+      "kind": "prop",
+      "position": [
+        3,
+        0,
+        -10
+      ],
+      "shape": "rock",
+      "scale": 1.4,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "arch-1",
+      "kind": "prop",
+      "position": [
+        0,
+        0,
+        10
+      ],
+      "shape": "arch",
+      "scale": 1,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "sign-1",
+      "kind": "sign",
+      "position": [
+        2,
+        0,
+        12
+      ],
+      "text": "Shoot targets (+10) and crabs (+25). 100 points opens the exit on the dock. Fire: F or the Fire button.",
+      "radius": 2.5
+    },
+    {
+      "id": "t1",
+      "kind": "target",
+      "position": [
+        -6,
+        1.2,
+        -2
+      ],
+      "size": [
+        1.5,
+        1.5,
+        0.3
+      ],
+      "hits": 1,
+      "respawnSeconds": 8
+    },
+    {
+      "id": "t2",
+      "kind": "target",
+      "position": [
+        7,
+        1.2,
+        -3
+      ],
+      "size": [
+        1.5,
+        1.5,
+        0.3
+      ],
+      "hits": 1,
+      "respawnSeconds": 8
+    },
+    {
+      "id": "t3",
+      "kind": "target",
+      "position": [
+        0,
+        1.2,
+        -8
+      ],
+      "size": [
+        1.5,
+        1.5,
+        0.3
+      ],
+      "hits": 2,
+      "respawnSeconds": 8
+    },
+    {
+      "id": "t4",
+      "kind": "target",
+      "position": [
+        12,
+        1.2,
+        -1
+      ],
+      "size": [
+        1.5,
+        1.5,
+        0.3
+      ],
+      "hits": 1,
+      "respawnSeconds": 8
+    },
+    {
+      "id": "crab-1",
+      "kind": "enemy",
+      "position": [
+        -6,
+        0,
+        -6
+      ],
+      "speed": 2.5,
+      "range": 7,
+      "hits": 2,
+      "damage": 1,
+      "respawnSeconds": 10,
+      "patrolTo": [
+        6,
+        0,
+        -6
+      ]
+    },
+    {
+      "id": "crab-2",
+      "kind": "enemy",
+      "position": [
+        8,
+        0,
+        4
+      ],
+      "speed": 2.5,
+      "range": 7,
+      "hits": 2,
+      "damage": 1,
+      "respawnSeconds": 10,
+      "patrolTo": [
+        8,
+        0,
+        -4
+      ]
+    },
+    {
+      "id": "crab-3",
+      "kind": "enemy",
+      "position": [
+        -10,
+        0,
+        3
+      ],
+      "speed": 3,
+      "range": 8,
+      "hits": 3,
+      "damage": 1,
+      "respawnSeconds": 12,
+      "patrolTo": [
+        -3,
+        0,
+        6
+      ]
+    },
+    {
+      "id": "turret-1",
+      "kind": "turret",
+      "position": [
+        -9,
+        4,
+        -9
+      ],
+      "range": 14,
+      "every": 2.5,
+      "damage": 1
+    },
+    {
+      "id": "med-1",
+      "kind": "item",
+      "position": [
+        10,
+        0,
+        10
+      ],
+      "radius": 0.8,
+      "item": "heart",
+      "amount": 1,
+      "respawnSeconds": 20
+    },
+    {
+      "id": "points",
+      "kind": "score",
+      "position": [
+        12,
+        0,
+        12
+      ],
+      "label": "Points",
+      "points": 10,
+      "target": 100,
+      "hud": true
+    },
+    {
+      "id": "speaker-1",
+      "kind": "speaker",
+      "position": [
+        12,
+        0,
+        11
+      ],
+      "sound": "win"
+    },
+    {
+      "id": "sign-open",
+      "kind": "sign",
+      "position": [
+        8,
+        0.5,
+        -7
+      ],
+      "text": "The exit is open on the dock!",
+      "radius": 0
+    },
+    {
+      "id": "exit-1",
+      "kind": "goal",
+      "position": [
+        11,
+        1,
+        -10
+      ],
+      "radius": 1.2,
+      "hidden": true
+    }
+  ],
+  "rules": {
+    "mode": "free",
+    "requiredPickupValue": 0,
+    "timeLimitSeconds": 180,
+    "fallBelowY": -8,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": true,
+    "health": 3,
+    "lives": 3
+  }
+}

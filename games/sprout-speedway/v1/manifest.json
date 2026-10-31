@@ -1,0 +1,955 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "sprout-speedway",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Sprout Speedway",
+  "templateId": "free-play-v1",
+  "description": "A three-lap car race round a big floating loop: launch over the gap, ride the hills, hit the speed strip. Race your friends in a party.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [],
+  "spawn": [
+    -27,
+    0.5,
+    36
+  ],
+  "spawnYaw": 1.5707963267948966,
+  "sky": "day",
+  "entities": [
+    {
+      "id": "south",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        36
+      ],
+      "size": [
+        84,
+        1,
+        8
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "east",
+      "kind": "box",
+      "position": [
+        38,
+        -0.5,
+        0
+      ],
+      "size": [
+        8,
+        1,
+        80
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "north-a",
+      "kind": "box",
+      "position": [
+        23.5,
+        -0.5,
+        -36
+      ],
+      "size": [
+        37,
+        1,
+        8
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "north-b",
+      "kind": "box",
+      "position": [
+        -21.5,
+        -0.5,
+        -36
+      ],
+      "size": [
+        41,
+        1,
+        8
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "west-a",
+      "kind": "box",
+      "position": [
+        -38,
+        -0.5,
+        -26
+      ],
+      "size": [
+        8,
+        1,
+        28
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "west-b",
+      "kind": "box",
+      "position": [
+        -38,
+        -0.5,
+        26
+      ],
+      "size": [
+        8,
+        1,
+        28
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "hills",
+      "kind": "terrain",
+      "position": [
+        -38,
+        0,
+        0
+      ],
+      "heights": "86420000000024689753111111113579a86422222222468ab97533333333579bca864444444468acca864444444468acb97533333333579ba86422222222468a97531111111135799753111111113579a86422222222468ab97533333333579bb97533333333579ba86422222222468a97531111111135798642000000002468",
+      "color": "#8fd06b"
+    },
+    {
+      "id": "infield",
+      "kind": "box",
+      "position": [
+        0,
+        -0.6,
+        0
+      ],
+      "size": [
+        68,
+        1,
+        64
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "kerb-1",
+      "kind": "box",
+      "position": [
+        -38,
+        0.04,
+        36
+      ],
+      "size": [
+        8,
+        0.08,
+        8
+      ],
+      "solid": false,
+      "color": "#ffffff"
+    },
+    {
+      "id": "kerb-2",
+      "kind": "box",
+      "position": [
+        38,
+        0.04,
+        36
+      ],
+      "size": [
+        8,
+        0.08,
+        8
+      ],
+      "solid": false,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "kerb-3",
+      "kind": "box",
+      "position": [
+        38,
+        0.04,
+        -36
+      ],
+      "size": [
+        8,
+        0.08,
+        8
+      ],
+      "solid": false,
+      "color": "#ffffff"
+    },
+    {
+      "id": "kerb-4",
+      "kind": "box",
+      "position": [
+        -38,
+        0.04,
+        -36
+      ],
+      "size": [
+        8,
+        0.08,
+        8
+      ],
+      "solid": false,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "grid-line",
+      "kind": "box",
+      "position": [
+        -20,
+        0.04,
+        36
+      ],
+      "size": [
+        1,
+        0.08,
+        8
+      ],
+      "solid": false,
+      "color": "#ffffff"
+    },
+    {
+      "id": "finish",
+      "kind": "race",
+      "position": [
+        -20,
+        1.5,
+        36
+      ],
+      "laps": 3,
+      "countdown": 3,
+      "size": [
+        1,
+        3,
+        8
+      ],
+      "bots": 4,
+      "path": [
+        [
+          30,
+          0,
+          36
+        ],
+        [
+          37,
+          0,
+          30
+        ],
+        [
+          38,
+          0,
+          22
+        ],
+        [
+          38,
+          0,
+          -24
+        ],
+        [
+          37,
+          0,
+          -30
+        ],
+        [
+          31,
+          0,
+          -36
+        ],
+        [
+          20,
+          0,
+          -36
+        ],
+        [
+          10,
+          0,
+          -36
+        ],
+        [
+          -6,
+          0,
+          -36
+        ],
+        [
+          -16,
+          0,
+          -36
+        ],
+        [
+          -30,
+          0,
+          -36
+        ],
+        [
+          -37,
+          0,
+          -30
+        ],
+        [
+          -38,
+          0,
+          -12
+        ],
+        [
+          -38,
+          1,
+          0
+        ],
+        [
+          -38,
+          0,
+          12
+        ],
+        [
+          -38,
+          0,
+          24
+        ],
+        [
+          -37,
+          0,
+          30
+        ],
+        [
+          -31,
+          0,
+          36
+        ],
+        [
+          -14,
+          0,
+          36
+        ]
+      ]
+    },
+    {
+      "id": "items-a1",
+      "kind": "itembox",
+      "position": [
+        10,
+        0,
+        33.5
+      ],
+      "respawnSeconds": 1.5
+    },
+    {
+      "id": "items-a2",
+      "kind": "itembox",
+      "position": [
+        10,
+        0,
+        36
+      ],
+      "respawnSeconds": 1.5
+    },
+    {
+      "id": "items-a3",
+      "kind": "itembox",
+      "position": [
+        10,
+        0,
+        38.5
+      ],
+      "respawnSeconds": 1.5
+    },
+    {
+      "id": "items-b1",
+      "kind": "itembox",
+      "position": [
+        35.5,
+        0,
+        -14
+      ],
+      "respawnSeconds": 1.5
+    },
+    {
+      "id": "items-b2",
+      "kind": "itembox",
+      "position": [
+        38,
+        0,
+        -14
+      ],
+      "respawnSeconds": 1.5
+    },
+    {
+      "id": "items-b3",
+      "kind": "itembox",
+      "position": [
+        40.5,
+        0,
+        -14
+      ],
+      "respawnSeconds": 1.5
+    },
+    {
+      "id": "boost-pad-1",
+      "kind": "boostpad",
+      "position": [
+        -28,
+        0,
+        -36
+      ],
+      "radius": 1.6,
+      "power": 6,
+      "seconds": 1
+    },
+    {
+      "id": "boost-pad-2",
+      "kind": "boostpad",
+      "position": [
+        -38,
+        0,
+        20
+      ],
+      "radius": 1.6,
+      "power": 6,
+      "seconds": 1
+    },
+    {
+      "id": "boost-pad-3",
+      "kind": "boostpad",
+      "position": [
+        0,
+        0,
+        36
+      ],
+      "radius": 1.6,
+      "power": 5,
+      "seconds": 0.8
+    },
+    {
+      "id": "arch",
+      "kind": "prop",
+      "position": [
+        -20,
+        0,
+        36
+      ],
+      "shape": "arch",
+      "scale": 2.4,
+      "color": "#ffcf4a",
+      "turn": 1
+    },
+    {
+      "id": "start-1",
+      "kind": "spawnpad",
+      "position": [
+        -27,
+        0,
+        34
+      ],
+      "team": 0
+    },
+    {
+      "id": "start-2",
+      "kind": "spawnpad",
+      "position": [
+        -27,
+        0,
+        38
+      ],
+      "team": 0
+    },
+    {
+      "id": "start-3",
+      "kind": "spawnpad",
+      "position": [
+        -31,
+        0,
+        34
+      ],
+      "team": 0
+    },
+    {
+      "id": "start-4",
+      "kind": "spawnpad",
+      "position": [
+        -31,
+        0,
+        38
+      ],
+      "team": 0
+    },
+    {
+      "id": "gate-1",
+      "kind": "checkpoint",
+      "position": [
+        38,
+        0.5,
+        22
+      ],
+      "order": 1,
+      "radius": 4
+    },
+    {
+      "id": "gate-2",
+      "kind": "checkpoint",
+      "position": [
+        38,
+        0.5,
+        -24
+      ],
+      "order": 2,
+      "radius": 4
+    },
+    {
+      "id": "gate-3",
+      "kind": "checkpoint",
+      "position": [
+        20,
+        0.5,
+        -36
+      ],
+      "order": 3,
+      "radius": 4
+    },
+    {
+      "id": "gate-4",
+      "kind": "checkpoint",
+      "position": [
+        -16,
+        0.5,
+        -36
+      ],
+      "order": 4,
+      "radius": 4
+    },
+    {
+      "id": "gate-5",
+      "kind": "checkpoint",
+      "position": [
+        -38,
+        1.2,
+        0
+      ],
+      "order": 5,
+      "radius": 4.5
+    },
+    {
+      "id": "gate-6",
+      "kind": "checkpoint",
+      "position": [
+        -38,
+        0.5,
+        24
+      ],
+      "order": 6,
+      "radius": 4
+    },
+    {
+      "id": "jump",
+      "kind": "launcher",
+      "position": [
+        8,
+        0,
+        -36
+      ],
+      "radius": 1.6,
+      "up": 14,
+      "forward": 13
+    },
+    {
+      "id": "jump-arrow-1",
+      "kind": "box",
+      "position": [
+        12,
+        0.04,
+        -36
+      ],
+      "size": [
+        1.2,
+        0.08,
+        3
+      ],
+      "solid": false,
+      "color": "#ffcf4a"
+    },
+    {
+      "id": "jump-arrow-2",
+      "kind": "box",
+      "position": [
+        15,
+        0.04,
+        -36
+      ],
+      "size": [
+        1.2,
+        0.08,
+        3
+      ],
+      "solid": false,
+      "color": "#ffcf4a"
+    },
+    {
+      "id": "boost",
+      "kind": "mutator",
+      "position": [
+        38,
+        1,
+        0
+      ],
+      "size": [
+        8,
+        2,
+        14
+      ],
+      "speed": 1.6,
+      "jump": 1
+    },
+    {
+      "id": "boost-paint",
+      "kind": "box",
+      "position": [
+        38,
+        0.03,
+        0
+      ],
+      "size": [
+        7.6,
+        0.05,
+        13.6
+      ],
+      "solid": false,
+      "color": "#7fd3ff"
+    },
+    {
+      "id": "sign-1",
+      "kind": "sign",
+      "position": [
+        -25,
+        0,
+        31.5
+      ],
+      "text": "Three laps against four racers. Hold Jump in a turn to drift for a boost. Grab item boxes!",
+      "radius": 2.5
+    },
+    {
+      "id": "tower-1",
+      "kind": "prop",
+      "position": [
+        -46,
+        0,
+        44
+      ],
+      "shape": "tower",
+      "scale": 1.3,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "tower-2",
+      "kind": "prop",
+      "position": [
+        46,
+        0,
+        44
+      ],
+      "shape": "tower",
+      "scale": 1.3,
+      "color": "#c9b3ff"
+    },
+    {
+      "id": "tower-3",
+      "kind": "prop",
+      "position": [
+        46,
+        0,
+        -44
+      ],
+      "shape": "tower",
+      "scale": 1.3,
+      "color": "#8ec5ff"
+    },
+    {
+      "id": "tower-4",
+      "kind": "prop",
+      "position": [
+        -46,
+        0,
+        -44
+      ],
+      "shape": "tower",
+      "scale": 1.3,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "pad-1",
+      "kind": "box",
+      "position": [
+        -46,
+        -0.5,
+        44
+      ],
+      "size": [
+        5,
+        1,
+        5
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "pad-2",
+      "kind": "box",
+      "position": [
+        46,
+        -0.5,
+        44
+      ],
+      "size": [
+        5,
+        1,
+        5
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "pad-3",
+      "kind": "box",
+      "position": [
+        46,
+        -0.5,
+        -44
+      ],
+      "size": [
+        5,
+        1,
+        5
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "pad-4",
+      "kind": "box",
+      "position": [
+        -46,
+        -0.5,
+        -44
+      ],
+      "size": [
+        5,
+        1,
+        5
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "tree-1",
+      "kind": "prop",
+      "position": [
+        -10,
+        -0.1,
+        0
+      ],
+      "shape": "tree",
+      "scale": 1.6,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-2",
+      "kind": "prop",
+      "position": [
+        12,
+        -0.1,
+        8
+      ],
+      "shape": "tree",
+      "scale": 1.3,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "tree-3",
+      "kind": "prop",
+      "position": [
+        4,
+        -0.1,
+        -14
+      ],
+      "shape": "tree",
+      "scale": 1.4,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-4",
+      "kind": "prop",
+      "position": [
+        -18,
+        -0.1,
+        18
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "tree-5",
+      "kind": "prop",
+      "position": [
+        22,
+        -0.1,
+        -20
+      ],
+      "shape": "tree",
+      "scale": 1.2,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-6",
+      "kind": "prop",
+      "position": [
+        -22,
+        -0.1,
+        -18
+      ],
+      "shape": "tree",
+      "scale": 1.5,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "flower-1",
+      "kind": "prop",
+      "position": [
+        0,
+        -0.1,
+        24
+      ],
+      "shape": "flower",
+      "scale": 1,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "flower-2",
+      "kind": "prop",
+      "position": [
+        20,
+        -0.1,
+        24
+      ],
+      "shape": "flower",
+      "scale": 1,
+      "color": "#ffcf4a"
+    },
+    {
+      "id": "flower-3",
+      "kind": "prop",
+      "position": [
+        -24,
+        -0.1,
+        6
+      ],
+      "shape": "flower",
+      "scale": 1,
+      "color": "#c9b3ff"
+    },
+    {
+      "id": "flower-4",
+      "kind": "prop",
+      "position": [
+        26,
+        -0.1,
+        0
+      ],
+      "shape": "flower",
+      "scale": 1,
+      "color": "#ff8fb8"
+    },
+    {
+      "id": "lamp-1",
+      "kind": "prop",
+      "position": [
+        0,
+        -0.1,
+        30.5
+      ],
+      "shape": "lamp",
+      "scale": 1,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "lamp-2",
+      "kind": "prop",
+      "position": [
+        20,
+        -0.1,
+        30.5
+      ],
+      "shape": "lamp",
+      "scale": 1,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "lamp-3",
+      "kind": "prop",
+      "position": [
+        32.5,
+        -0.1,
+        -10
+      ],
+      "shape": "lamp",
+      "scale": 1,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "lamp-4",
+      "kind": "prop",
+      "position": [
+        32.5,
+        -0.1,
+        12
+      ],
+      "shape": "lamp",
+      "scale": 1,
+      "color": "#ffd45a"
+    }
+  ],
+  "rules": {
+    "mode": "free",
+    "requiredPickupValue": 0,
+    "timeLimitSeconds": 0,
+    "fallBelowY": -8,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": false,
+    "health": 0,
+    "lives": 0,
+    "join": "nextRound"
+  }
+}

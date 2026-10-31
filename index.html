@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#8ec5ff" />
+    <link rel="manifest" href="./app.webmanifest" />
+    <link rel="icon" type="image/png" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./icons/apple-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="VOP" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" />
+    <meta name="description" content="VOP prototype: short browser games with the Vop character. Local build, no accounts." />
+    <title>VOP · play</title>
+    <script type="module" crossorigin src="/lp-playtest/assets/index-laPaiDEV.js"></script>
+    <link rel="modulepreload" crossorigin href="/lp-playtest/assets/three-CI6aexc1.js">
+    <link rel="stylesheet" crossorigin href="/lp-playtest/assets/index-8q3mcCla.css">
+  </head>
+  <body>
+    <canvas id="game-canvas" aria-hidden="true"></canvas>
+
+    <div id="touch-layer" hidden>
+      <div id="joystick" hidden aria-hidden="true"><div id="joystick-knob"></div></div>
+      <button id="btn-jump" type="button" aria-label="Jump">Jump</button>
+      <button id="btn-accel" type="button" aria-label="Accelerate" hidden>Go</button>
+      <button id="btn-fire" type="button" aria-label="Fire" hidden>Fire</button>
+    </div>
+
+    <div id="hud" hidden>
+      <div id="hud-progress" aria-live="polite"></div>
+      <div id="hud-time" aria-label="Time"></div>
+      <button id="btn-view" type="button" aria-label="Switch camera" hidden>1st</button>
+      <button id="btn-emote" type="button" aria-label="Emotes" aria-expanded="false">☺</button>
+      <button id="btn-pause" type="button" aria-label="Pause">❚❚</button>
+      <div id="hud-character" class="muted"></div>
+      <div id="hud-players" class="muted" aria-live="polite" hidden></div>
+      <ul id="hud-objectives" class="hud-objectives" hidden></ul>
+      <div id="hud-item" class="hud-item" hidden></div>
+      <div id="hud-buttons">
+        <div class="sb-slot top-left"></div>
+        <div class="sb-slot top-right"></div>
+        <div class="sb-slot left"></div>
+        <div class="sb-slot right"></div>
+      </div>
+      <div id="hud-messages" aria-live="polite">
+        <div class="hm-zone top"></div>
+        <div class="hm-zone middle"></div>
+        <div class="hm-zone bottom"></div>
+      </div>
+    </div>
+
+    <div id="crosshair" hidden aria-hidden="true"></div>
+    <div id="countdown" hidden aria-live="assertive"></div>
+    <div id="emote-menu" class="emote-menu" role="menu" hidden>
+      <button type="button" role="menuitem" data-emote="wave">👋 Wave <kbd>1</kbd></button>
+      <button type="button" role="menuitem" data-emote="dance">💃 Dance <kbd>2</kbd></button>
+      <button type="button" role="menuitem" data-emote="cheer">🙌 Cheer <kbd>3</kbd></button>
+      <button type="button" role="menuitem" data-emote="sit">🪑 Sit <kbd>4</kbd></button>
+    </div>
+    <div id="round-break" class="panel round-break" role="status" hidden>
+      <p id="rb-title" class="rb-title"></p>
+      <p id="rb-result" class="rb-result"></p>
+      <p id="rb-tally" class="muted"></p>
+      <p id="rb-next" class="rb-next"></p>
+    </div>
+    <div id="waiting" class="waiting" role="status" hidden>Someone is mid-round. You join when the next round starts…</div>
+
+    <div id="hints" hidden aria-hidden="true">
+      <div id="hint-move" class="hint"></div>
+      <div id="hint-jump" class="hint"></div>
+    </div>
+
+    <div id="toast" role="status" aria-live="polite" hidden></div>
+
+    <div id="screen-profile" class="panel" role="dialog" aria-labelledby="profile-title" hidden>
+      <h2 id="profile-title" tabindex="-1">Set up your Vop</h2>
+      <p class="muted small">Saved on this device only. No account, and nothing is sent anywhere.</p>
+      <form id="profile-form" class="form" novalidate>
+        <label class="field" for="pf-name">Name</label>
+        <input id="pf-name" class="text" type="text" maxlength="16" autocomplete="nickname" autocapitalize="words" spellcheck="false" placeholder="Leave blank for a random Vop" />
+
+        <fieldset class="field">
+          <legend>Vop colour</legend>
+          <div id="pf-colours" class="swatches"></div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Move stick (touch)</legend>
+          <div class="seg">
+            <label><input type="radio" name="pf-stick" value="left" /><span>Left thumb</span></label>
+            <label><input type="radio" name="pf-stick" value="right" /><span>Right thumb</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Look speed</legend>
+          <div class="seg">
+            <label><input type="radio" name="pf-look" value="slow" /><span>Slow</span></label>
+            <label><input type="radio" name="pf-look" value="normal" /><span>Normal</span></label>
+            <label><input type="radio" name="pf-look" value="fast" /><span>Fast</span></label>
+          </div>
+        </fieldset>
+
+        <label class="check"><input id="pf-motion" type="checkbox" /> Reduce motion</label>
+
+        <fieldset class="field">
+          <legend>Age</legend>
+          <div class="seg">
+            <label><input type="radio" name="pf-age" value="under13" /><span>Under 13</span></label>
+            <label><input type="radio" name="pf-age" value="teen" /><span>13 to 17</span></label>
+            <label><input type="radio" name="pf-age" value="adult" /><span>18 and over</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Break reminder</legend>
+          <div class="seg">
+            <label><input type="radio" name="pf-break" value="0" /><span>Off</span></label>
+            <label><input type="radio" name="pf-break" value="15" /><span>15 min</span></label>
+            <label><input type="radio" name="pf-break" value="30" /><span>30 min</span></label>
+            <label><input type="radio" name="pf-break" value="60" /><span>60 min</span></label>
+          </div>
+          <p id="pf-note" class="muted small" aria-live="polite" hidden></p>
+        </fieldset>
+
+        <div class="row">
+          <button id="btn-profile-save" type="submit">Let's play</button>
+          <button id="btn-profile-cancel" type="button" class="secondary">Back</button>
+        </div>
+      </form>
+    </div>
+
+    <div id="editor" hidden>
+      <div id="ed-top">
+        <button id="ed-menu" type="button" aria-label="Editor menu">Menu</button>
+        <div id="ed-titles"><span id="ed-title"></span><span id="ed-status" class="small"></span><span id="ed-memory" class="ed-memory" role="meter" aria-label="Memory used" aria-valuemin="0" aria-valuemax="100"><span></span></span></div>
+        <button id="ed-undo" type="button" class="secondary" aria-label="Undo">Undo</button>
+        <button id="ed-redo" type="button" class="secondary" aria-label="Redo">Redo</button>
+        <button id="ed-test" type="button">Test</button>
+      </div>
+      <div id="ed-bottom">
+        <div id="ed-tour" class="tour" hidden>
+          <p id="ed-tour-step" class="tour-step"></p>
+          <p id="ed-tour-title" class="tour-title"></p>
+          <p id="ed-tour-text" class="tour-text"></p>
+          <div class="row">
+            <button id="ed-tour-next" type="button" disabled>Next</button>
+            <button id="ed-tour-skip" type="button" class="secondary">Skip the tour</button>
+          </div>
+        </div>
+        <p id="ed-hint" class="muted small"></p>
+        <div id="ed-tabs" role="tablist" aria-label="Editor tools">
+          <button type="button" role="tab" data-tab="add">Add</button>
+          <button type="button" role="tab" data-tab="object">Object</button>
+          <button type="button" role="tab" data-tab="island">Island</button>
+          <button type="button" role="tab" data-tab="wires">Wires</button>
+          <button type="button" role="tab" data-tab="settings">Settings</button>
+        </div>
+        <div id="ed-add" class="ed-pane chips" role="tabpanel"></div>
+        <div id="ed-object" class="ed-pane" role="tabpanel" hidden></div>
+        <div id="ed-island" class="ed-pane" role="tabpanel" hidden></div>
+        <div id="ed-wires" class="ed-pane" role="tabpanel" hidden></div>
+        <div id="ed-settings" class="ed-pane" role="tabpanel" hidden></div>
+      </div>
+    </div>
+
+    <div id="screen-edmenu" class="panel" role="dialog" aria-labelledby="edmenu-title" hidden>
+      <h2 id="edmenu-title">Editor</h2>
+      <div id="edmenu-problems"></div>
+      <div class="stack">
+        <button id="btn-edmenu-test" type="button">Test play</button>
+        <button id="btn-edmenu-publish" type="button">Publish</button>
+        <button id="btn-edmenu-exit" type="button" class="secondary">Exit (keeps the draft)</button>
+        <button id="btn-edmenu-back" type="button" class="secondary">Back to editing</button>
+      </div>
+      <p class="muted small">Drafts stay on this device. Publishing puts the game in your games with a share link.</p>
+    </div>
+
+    <div id="screen-wardrobe" class="panel" role="dialog" aria-labelledby="wardrobe-title" hidden>
+      <div class="wardrobe-head">
+        <h2 id="wardrobe-title">Wardrobe</h2>
+        <span class="rewards-wallet"><span id="wardrobe-coins" class="coins big"></span><span id="wardrobe-tickets" class="tickets big"></span></span>
+      </div>
+      <div class="wardrobe-body">
+        <img id="wardrobe-preview" class="wardrobe-preview" alt="Your Vop in this outfit" />
+        <div class="wardrobe-lists">
+          <div class="wardrobe-tabs" role="tablist" aria-label="Wardrobe sections">
+            <button id="wardrobe-tab-outfit" type="button" role="tab" aria-selected="true">Outfit</button>
+            <button id="wardrobe-tab-face" type="button" role="tab" aria-selected="false">Face</button>
+            <button id="wardrobe-tab-cars" type="button" role="tab" aria-selected="false">Cars</button>
+          </div>
+          <div id="wardrobe-outfit" role="tabpanel" aria-labelledby="wardrobe-tab-outfit">
+            <h3 class="section-title">Skin</h3>
+            <div id="wardrobe-skins" class="wardrobe-grid"></div>
+            <h3 class="section-title">Hood</h3>
+            <div id="wardrobe-hoods" class="wardrobe-grid"></div>
+            <h3 class="section-title">Gear</h3>
+            <div id="wardrobe-gear" class="wardrobe-grid"></div>
+          </div>
+          <div id="wardrobe-face" role="tabpanel" aria-labelledby="wardrobe-tab-face" hidden></div>
+          <div id="wardrobe-cars-panel" role="tabpanel" aria-labelledby="wardrobe-tab-cars" hidden>
+            <div id="wardrobe-cars" class="wardrobe-grid"></div>
+            <div id="wardrobe-carstyle" class="carstyle"></div>
+            <p class="muted small">Your Vop drives this car in race games, and friends in a party see it.</p>
+          </div>
+        </div>
+      </div>
+      <p class="muted small">Coins come from playing: a few for every round, more for a win and for points. Tickets come from daily challenges and the free pass track, and buy ticket items and giveaway entries. Some items come only from the season pass, VOP Plus or a giveaway.</p>
+      <button id="btn-wardrobe-done" type="button">Done</button>
+    </div>
+
+    <div id="screen-stats" class="panel" role="dialog" aria-labelledby="stats-title" hidden>
+      <div class="wardrobe-head">
+        <h2 id="stats-title">Level <span id="stats-level">1</span></h2>
+        <span id="stats-xp" class="muted small"></span>
+      </div>
+      <div class="xp-bar" aria-hidden="true"><span id="stats-xp-fill"></span></div>
+      <p id="stats-streak" class="stats-streak"></p>
+      <h3 class="section-title">Today's challenges</h3>
+      <ul id="stats-daily" class="daily-list"></ul>
+      <h3 class="section-title">This week</h3>
+      <ul id="stats-weekly" class="daily-list"></ul>
+      <h3 class="section-title">Badges</h3>
+      <div id="stats-badges" class="badge-grid"></div>
+      <h3 class="section-title">Your numbers</h3>
+      <dl id="stats-numbers" class="stat-list"></dl>
+      <p class="muted small">Kept on this device. Daily challenges change at midnight; weekly quests on Monday and pay season pass XP. Play a game each day to keep your streak; a freeze covers a missed day, and you get one each week you play (two at most).</p>
+      <button id="btn-stats-done" type="button">Done</button>
+    </div>
+
+    <div id="screen-island-stats" class="panel" role="dialog" aria-labelledby="island-stats-title" hidden>
+      <h2 id="island-stats-title"></h2>
+      <p class="muted small">This week, from players other than you. Updated as people play.</p>
+      <dl id="island-stats-list" class="stat-list"></dl>
+      <p id="island-stats-tip" class="result-message"></p>
+      <button id="btn-island-stats-done" type="button">Done</button>
+    </div>
+
+    <div id="screen-create" class="panel create-page" role="dialog" aria-labelledby="create-title" hidden>
+      <h2 id="create-title">Create</h2>
+      <h3 class="section-title">Start fresh</h3>
+      <div class="dz-create-grid">
+        <button id="btn-new-game" type="button" class="create-tile c-green"><strong>New island</strong><small>A blank island, all yours</small></button>
+        <button id="btn-tour" type="button" class="create-tile c-purple"><strong>Guided build</strong><small>Your first island, step by step</small></button>
+      </div>
+      <h3 class="section-title">Templates</h3>
+      <p class="muted small">A ready-made game to change however you like.</p>
+      <div class="dz-create-grid">
+        <button id="btn-new-race" type="button" class="create-tile c-pink"><strong>Oval race</strong><small>A road loop, computer racers</small></button>
+        <button id="btn-new-race8" type="button" class="create-tile c-blue"><strong>Figure 8 race</strong><small>Over a bridge and under it</small></button>
+        <button id="btn-new-racehill" type="button" class="create-tile c-yellow"><strong>Hill climb race</strong><small>Up and over a hill</small></button>
+        <button id="btn-new-tycoon" type="button" class="create-tile c-yellow"><strong>Tycoon</strong><small>Droppers, cash, upgrades</small></button>
+        <button id="btn-new-shooter" type="button" class="create-tile c-red"><strong>Shooter</strong><small>Blaster, targets, enemies</small></button>
+        <button id="btn-new-party" type="button" class="create-tile c-blue"><strong>Party game</strong><small>Tag over three rounds</small></button>
+        <button id="btn-new-horror" type="button" class="create-tile c-night"><strong>Horror</strong><small>Dark, flicker lights, a torch</small></button>
+        <button id="btn-new-neon" type="button" class="create-tile c-neon"><strong>Neon</strong><small>Glowing night island</small></button>
+      </div>
+      <button id="btn-create-back" type="button" class="secondary">Back to games</button>
+    </div>
+
+    <div id="screen-rewards" class="panel" role="dialog" aria-labelledby="rewards-title" hidden>
+      <div class="wardrobe-head">
+        <h2 id="rewards-title">Rewards</h2>
+        <span class="rewards-wallet"><span id="rewards-coins" class="coins big"></span><span id="rewards-tickets" class="tickets big"></span></span>
+      </div>
+      <section class="rewards-pass" aria-labelledby="pass-title">
+        <h3 id="pass-title" class="section-title"></h3>
+        <p id="pass-sub" class="muted small"></p>
+        <div class="xp-bar" aria-hidden="true"><span id="pass-fill"></span></div>
+        <div id="pass-track" class="pass-track"></div>
+      </section>
+      <section id="rewards-plus" class="plus-card" aria-label="VOP Plus"></section>
+      <section aria-labelledby="giveaways-title">
+        <h3 id="giveaways-title" class="section-title">Giveaways</h3>
+        <p class="muted small">Free to enter with tickets. Tickets come only from playing (daily challenges and the free pass track) and can never be bought.</p>
+        <div id="giveaway-list" class="giveaway-list"></div>
+      </section>
+      <section aria-labelledby="redeem-title">
+        <h3 id="redeem-title" class="section-title">Redeem a code</h3>
+        <form id="redeem-form" class="row redeem-row">
+          <input id="redeem-code" class="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="30" aria-label="Code" placeholder="CODE" />
+          <button type="submit">Redeem</button>
+        </form>
+      </section>
+      <button id="btn-rewards-done" type="button">Done</button>
+    </div>
+
+    <div id="screen-published" class="panel" role="dialog" aria-labelledby="published-title" hidden>
+      <h2 id="published-title"></h2>
+      <p id="published-text"></p>
+      <div class="stack">
+        <button id="btn-published-share" type="button">Share the link</button>
+        <button id="btn-published-play" type="button" class="secondary">Play it</button>
+        <button id="btn-published-back" type="button" class="secondary">Back to games</button>
+      </div>
+    </div>
+
+    <main id="screen-landing" class="discover" hidden>
+      <div class="dz-sky" aria-hidden="true"><span class="cloud c1"></span><span class="cloud c2"></span><span class="cloud c3"></span></div>
+      <div class="dz-wrap">
+        <header class="dz-top">
+          <h1 class="wordmark"><span>VOP</span><svg class="sprout" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 38V18" stroke="#79b543" stroke-width="4" stroke-linecap="round"/><path d="M20 22c-9 1-14-5-15-13 9-1 15 5 15 13Z" fill="#8fd06b"/><path d="M20 20c9 1 14-5 15-13-9-1-15 5-15 13Z" fill="#5fb55a"/></svg></h1>
+          <button id="btn-stats" type="button" class="dz-level" aria-label="Level, badges and daily challenges">★ Lv 1</button>
+          <button id="btn-streak" type="button" class="dz-level dz-streak" aria-label="Daily streak" hidden>🔥 0</button>
+          <button id="btn-rewards" type="button" class="dz-level dz-rewards" aria-label="Rewards: season pass, giveaways and codes">🎟 0</button>
+          <button id="btn-wardrobe" type="button" class="dz-me" aria-label="Wardrobe">
+            <img id="dz-avatar" class="dz-avatar" alt="" />
+            <span class="dz-me-text"><span id="dz-name" class="dz-name"></span><span id="landing-coins" class="coins"></span></span>
+          </button>
+        </header>
+
+        <section id="dz-party" class="dz-party" aria-label="Party">
+          <div class="dz-party-main">
+            <div class="dz-party-text">
+              <strong id="dz-party-title">Play together</strong>
+              <span id="dz-party-sub">Start a party and send the link. Everyone who opens it joins you, and follows you into every game.</span>
+            </div>
+            <div id="dz-party-members" class="dz-party-members"></div>
+          </div>
+          <div class="row dz-party-actions">
+            <button id="btn-party-start" type="button" class="btn-party">Start a party</button>
+            <button id="btn-party-invite" type="button" class="btn-party" hidden>Invite friends</button>
+            <button id="btn-party-leave" type="button" class="secondary" hidden>Leave party</button>
+          </div>
+          <div id="dz-friends" class="dz-friends" hidden>
+            <strong class="dz-friends-title">Friends</strong>
+            <div id="dz-friends-list" class="dz-friends-list"></div>
+            <small class="muted">Everyone you play with in a party shows up here.</small>
+          </div>
+        </section>
+
+        <section id="dz-hero" class="dz-hero" aria-roledescription="carousel" aria-label="Featured games">
+          <img id="dz-hero-img" class="dz-hero-img" alt="" />
+          <div class="dz-hero-shade"></div>
+          <div class="dz-hero-body">
+            <span id="dz-hero-genre" class="genre-chip"></span>
+            <h2 id="dz-hero-title" class="dz-hero-title"></h2>
+            <p id="dz-hero-summary" class="dz-hero-summary"></p>
+            <div class="row">
+              <button id="dz-hero-play" type="button" class="btn-play">Play</button>
+              <button id="dz-hero-more" type="button" class="secondary">More</button>
+            </div>
+          </div>
+          <div id="dz-hero-dots" class="dz-dots" role="tablist" aria-label="Featured"></div>
+        </section>
+
+        <nav id="dz-chips" class="dz-chips" aria-label="Genres"></nav>
+
+        <button id="btn-create" type="button" class="dz-create-bar">
+          <span class="dz-create-icon" aria-hidden="true">+</span>
+          <span class="dz-create-text"><strong>Create</strong><small>Make your own game: start fresh or from a template</small></span>
+        </button>
+
+        <section id="sec-mine" class="dz-row-section" hidden>
+          <h2 class="dz-row-title">Your islands</h2>
+          <div id="catalog-mine" class="dz-row"></div>
+          <p id="landing-note" class="muted small" hidden></p>
+        </section>
+
+        <div id="catalog" class="dz-rows"></div>
+
+        <section id="sec-community" class="dz-row-section" hidden>
+          <h2 class="dz-row-title">From your network</h2>
+          <p class="muted small">Published by people on this network. Report anything that is not OK; it disappears until someone checks it.</p>
+          <div id="catalog-community" class="dz-row"></div>
+        </section>
+
+        <footer class="dz-foot">
+          <button id="btn-profile" type="button" class="secondary">Settings and profile</button>
+          <details class="help">
+            <summary>Controls</summary>
+            <p><strong>Keyboard:</strong> WASD or arrows to move, Space to jump, drag with the mouse to look, click or F to fire in blaster games, Esc or P to pause, R to restart.</p>
+            <p><strong>Touch:</strong> drag on the left half to move, drag on the right half to look, tap Jump, tap Fire in blaster games.</p>
+          </details>
+          <p class="muted small">Prototype build. No account; your islands stay on this device unless you share a link. The character is a placeholder until the real Vop asset passes review.</p>
+        </footer>
+      </div>
+
+      <div id="dz-sheet" class="dz-sheet" role="dialog" aria-modal="true" aria-labelledby="dz-sheet-title" hidden>
+        <div class="dz-sheet-card">
+          <button id="dz-sheet-close" type="button" class="dz-close" aria-label="Close">×</button>
+          <img id="dz-sheet-img" class="dz-sheet-img" alt="" />
+          <div class="dz-sheet-body">
+            <div id="dz-sheet-chips" class="row chips-row"></div>
+            <h2 id="dz-sheet-title"></h2>
+            <p id="dz-sheet-by" class="muted"></p>
+            <p id="dz-sheet-summary"></p>
+            <p id="dz-sheet-meta" class="muted small"></p>
+            <div id="dz-sheet-actions" class="dz-sheet-actions"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="screen-loading" class="panel" role="status" hidden>
+      <p id="loading-text">Loading…</p>
+      <div class="spinner" aria-hidden="true"></div>
+      <button id="btn-loading-cancel" type="button">Cancel</button>
+    </div>
+
+    <div id="screen-error" class="panel" role="alertdialog" aria-labelledby="error-title" aria-describedby="error-text" hidden>
+      <h2 id="error-title">Could not start</h2>
+      <p id="error-text"></p>
+      <div class="row">
+        <button id="btn-retry" type="button">Retry</button>
+        <button id="btn-error-back" type="button" class="secondary">Back to games</button>
+      </div>
+    </div>
+
+    <div id="screen-pause" class="panel" role="dialog" aria-labelledby="pause-title" hidden>
+      <h2 id="pause-title">Paused</h2>
+      <p id="pause-meta" class="muted small"></p>
+      <div id="pause-island" class="island-actions" hidden></div>
+      <div class="stack">
+        <button id="btn-resume" type="button">Resume</button>
+        <button id="btn-restart" type="button" class="secondary">Restart round</button>
+        <button id="btn-reduced-motion" type="button" class="secondary" aria-pressed="false">Reduced motion: off</button>
+        <button id="btn-sound" type="button" class="secondary" aria-pressed="true">Sound: on</button>
+        <button id="btn-photo" type="button" class="secondary">📷 Photo mode</button>
+        <button id="btn-haptics" type="button" class="secondary" aria-pressed="true">Vibration: on</button>
+        <button id="btn-assist" type="button" class="secondary" aria-pressed="false">Colour assist: off</button>
+        <button id="btn-racers" type="button" class="secondary">Computer racers: normal</button>
+        <button id="btn-diag" type="button" class="secondary" aria-pressed="false">Diagnostics overlay: off</button>
+        <button id="btn-report" type="button" class="secondary">Report a problem</button>
+        <button id="btn-pause-editor" type="button" class="secondary" hidden>Back to the editor</button>
+        <button id="btn-reset-progress" type="button" class="secondary" hidden>Reset my progress in this game</button>
+        <button id="btn-exit" type="button" class="secondary">Exit to games</button>
+      </div>
+      <p class="muted small">Sound effects are synthesised in the browser; nothing is downloaded.</p>
+    </div>
+
+    <div id="screen-coinbuy" class="coinbuy" role="dialog" aria-modal="true" aria-labelledby="coinbuy-title" hidden>
+      <div class="coinbuy-card">
+        <p class="coinbuy-brand">VOP purchase</p>
+        <h2 id="coinbuy-title"></h2>
+        <p id="coinbuy-what" class="small"></p>
+        <p id="coinbuy-price" class="coinbuy-price"></p>
+        <p id="coinbuy-balance" class="muted small"></p>
+        <p id="coinbuy-note" class="muted small"></p>
+        <div class="stack">
+          <button id="btn-coinbuy-yes" type="button"></button>
+          <button id="btn-coinbuy-no" type="button" class="secondary">Not now</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="screen-result" class="panel" role="dialog" aria-labelledby="result-title" hidden>
+      <h2 id="result-title"></h2>
+      <div class="result-hero">
+        <p id="result-big" class="result-big"></p>
+        <p id="result-best" class="result-best" hidden></p>
+      </div>
+      <p id="result-challenge" class="result-challenge" hidden></p>
+      <p id="result-message" class="result-message" hidden></p>
+      <p id="result-rounds" class="result-rounds" hidden></p>
+      <p id="result-xp" class="result-xp" hidden></p>
+      <div id="result-island" class="island-actions" hidden></div>
+      <ol id="result-board" class="result-board" hidden></ol>
+      <p id="result-text"></p>
+      <p id="result-stats" class="muted small"></p>
+      <div class="stack">
+        <button id="btn-again" type="button">Play again</button>
+        <button id="btn-challenge" type="button" class="secondary">Challenge a friend</button>
+        <button id="btn-next" type="button" class="secondary">Next game</button>
+        <button id="btn-share" type="button" class="secondary" hidden>Share this vop</button>
+        <button id="btn-copy-results" type="button" class="secondary">Copy results for the tester</button>
+        <button id="btn-result-report" type="button" class="secondary">Report a problem</button>
+        <button id="btn-result-editor" type="button" class="secondary" hidden>Back to the editor</button>
+        <button id="btn-result-exit" type="button" class="secondary">Exit to games</button>
+      </div>
+    </div>
+
+    <div id="photo-bar" class="photo-bar" role="toolbar" aria-label="Photo mode" hidden>
+      <button type="button" data-ph="left" aria-label="Orbit left">⟲</button>
+      <button type="button" data-ph="right" aria-label="Orbit right">⟳</button>
+      <button type="button" data-ph="up" aria-label="Tilt up">▲</button>
+      <button type="button" data-ph="down" aria-label="Tilt down">▼</button>
+      <button type="button" data-ph="in" aria-label="Zoom in">＋</button>
+      <button type="button" data-ph="out" aria-label="Zoom out">－</button>
+      <button type="button" data-ph="filter" id="ph-filter">Filter: none</button>
+      <button type="button" data-ph="shot" class="shot">📷 Take</button>
+      <button type="button" data-ph="done">Done</button>
+    </div>
+    <div id="photo-preview" class="panel photo-preview" role="dialog" aria-label="Your photo" hidden>
+      <img id="photo-img" alt="Your photo" />
+      <div class="row">
+        <button id="btn-photo-share" type="button">Share</button>
+        <a id="btn-photo-save" class="button secondary" download="vop-photo.jpg">Save</a>
+        <button id="btn-photo-close" type="button" class="secondary">Back</button>
+      </div>
+    </div>
+
+    <div id="diag" hidden aria-hidden="true"></div>
+    <div id="fatal" class="panel" role="alert" hidden></div>
+
+  </body>
+</html>
