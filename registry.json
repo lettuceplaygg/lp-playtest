@@ -1,0 +1,430 @@
+{
+  "schemaVersion": "0.1",
+  "note": "Local P0 registry. Operator-authored. In P1 this is served by the catalog API and every entry carries a content hash.",
+  "games": [
+    {
+      "gameId": "sprout-speedway",
+      "version": 1,
+      "title": "Sprout Speedway",
+      "summary": "A three-lap car race round a big floating loop: launch over the gap, ride the hills, hit the speed strip. Race your friends in a party.",
+      "path": "games/sprout-speedway/v1/manifest.json",
+      "genre": "racing",
+      "tags": [
+        "racing",
+        "driving",
+        "versus",
+        "party",
+        "quick"
+      ]
+    },
+    {
+      "gameId": "garden-dash",
+      "version": 1,
+      "title": "Garden Dash",
+      "summary": "Collect five seeds and reach the exit. About a minute.",
+      "path": "games/garden-dash/v1/manifest.json",
+      "genre": "collect",
+      "tags": [
+        "collecting",
+        "exploring",
+        "quick",
+        "chill"
+      ]
+    },
+    {
+      "gameId": "checkpoint-trial",
+      "version": 1,
+      "title": "Rooftop Run",
+      "summary": "Four checkpoints, one clock, no safety net.",
+      "path": "games/checkpoint-trial/v1/manifest.json",
+      "genre": "obby",
+      "tags": [
+        "parkour",
+        "quick",
+        "high-score"
+      ]
+    },
+    {
+      "gameId": "sky-tycoon",
+      "version": 1,
+      "title": "Sky Tycoon",
+      "summary": "Run three droppers on a floating plot, buy upgrades, then buy the crown to open the exit. Your plot is kept between visits.",
+      "path": "games/sky-tycoon/v1/manifest.json",
+      "genre": "tycoon",
+      "tags": [
+        "tycoon",
+        "collecting",
+        "chill"
+      ]
+    },
+    {
+      "gameId": "blaster-bay",
+      "version": 1,
+      "title": "Blaster Bay",
+      "summary": "A beach range with targets, patrolling crabs and a turret on the tower. Score 100 points to open the exit.",
+      "path": "games/blaster-bay/v1/manifest.json",
+      "genre": "shooter",
+      "tags": [
+        "shooting",
+        "enemies",
+        "high-score",
+        "boss"
+      ]
+    },
+    {
+      "gameId": "launch-leap",
+      "version": 1,
+      "title": "Launch Pad Leap",
+      "summary": "Launch pads, lifts and a pocket of floaty air. Hit four checkpoints in order and reach the summit.",
+      "path": "games/launch-leap/v1/manifest.json",
+      "genre": "obby",
+      "tags": [
+        "parkour",
+        "exploring"
+      ]
+    },
+    {
+      "gameId": "lava-escape",
+      "version": 1,
+      "title": "Lava Escape",
+      "summary": "Hop the stones over lava, run the spiky bridge and climb to the tower. Three hearts, three lives.",
+      "path": "games/lava-escape/v1/manifest.json",
+      "genre": "obby",
+      "tags": [
+        "parkour",
+        "survival"
+      ]
+    },
+    {
+      "gameId": "coin-frenzy",
+      "version": 1,
+      "title": "Seed Frenzy",
+      "summary": "Sixty seconds, eighteen seeds, three launch pads. Grab 300 points to win, or set a best score.",
+      "path": "games/coin-frenzy/v1/manifest.json",
+      "genre": "score",
+      "tags": [
+        "collecting",
+        "high-score",
+        "quick",
+        "parkour"
+      ]
+    },
+    {
+      "gameId": "teleport-towers",
+      "version": 1,
+      "title": "Teleport Towers",
+      "summary": "Five floating towers, five teleporters, six seeds. Collect them all, then reach the exit at the hub.",
+      "path": "games/teleport-towers/v1/manifest.json",
+      "genre": "collect",
+      "tags": [
+        "collecting",
+        "exploring",
+        "puzzle"
+      ]
+    },
+    {
+      "gameId": "hollow-house",
+      "version": 1,
+      "title": "Hollow House",
+      "summary": "A dark house, a flashlight and five candles. The front door shuts behind you until you find them all. Spooky, with sudden sounds.",
+      "path": "games/hollow-house/v1/manifest.json",
+      "genre": "horror",
+      "tags": [
+        "scary",
+        "exploring",
+        "puzzle",
+        "story"
+      ]
+    },
+    {
+      "gameId": "sky-circuit",
+      "version": 1,
+      "title": "Sky Circuit",
+      "summary": "A three-lap race round a floating loop: four gates, a launch over the gap, a speed strip and bumpers. Race your friends in a party.",
+      "path": "games/sky-circuit/v1/manifest.json",
+      "genre": "racing",
+      "tags": [
+        "racing",
+        "driving",
+        "versus",
+        "party",
+        "quick"
+      ]
+    },
+    {
+      "gameId": "seed-squad",
+      "version": 1,
+      "title": "Seed Squad",
+      "summary": "Three rounds of 45 seconds: grab seeds for your team. Points add up over the rounds. Best with a party.",
+      "path": "games/seed-squad/v1/manifest.json",
+      "genre": "score",
+      "tags": [
+        "collecting",
+        "teams",
+        "party",
+        "rounds",
+        "high-score"
+      ]
+    },
+    {
+      "gameId": "plot-tycoon",
+      "version": 1,
+      "title": "Plot Tycoon",
+      "summary": "Four plots, one each: join any time, run your droppers, buy upgrades and a crown. Your plot is kept between visits.",
+      "path": "games/plot-tycoon/v1/manifest.json",
+      "genre": "tycoon",
+      "tags": [
+        "tycoon",
+        "party",
+        "chill",
+        "versus"
+      ]
+    },
+    {
+      "gameId": "tag-island",
+      "version": 1,
+      "title": "Tag Island",
+      "summary": "Party tag over three rounds: walls to dodge round, launch pads and a teleporter. Least time as \"it\" wins. Needs a party.",
+      "path": "games/tag-island/v1/manifest.json",
+      "genre": "collect",
+      "tags": [
+        "tag",
+        "party",
+        "rounds",
+        "versus",
+        "funny"
+      ]
+    },
+    {
+      "gameId": "hide-seek-woods",
+      "version": 1,
+      "title": "Hide and Seek Woods",
+      "summary": "Party hide-and-seek: huts, walls, crates, a lookout tower and a lot of trees. Found players join the seekers. Needs a party.",
+      "path": "games/hide-seek-woods/v1/manifest.json",
+      "genre": "collect",
+      "tags": [
+        "hide-seek",
+        "party",
+        "rounds",
+        "funny"
+      ]
+    },
+    {
+      "gameId": "vault-run",
+      "version": 1,
+      "title": "Vault Run",
+      "summary": "Find the red key, clear two crab waves for the gold key, and crack the vault. Objectives tick off as you go.",
+      "path": "games/vault-run/v1/manifest.json",
+      "genre": "shooter",
+      "tags": [
+        "shooting",
+        "enemies",
+        "puzzle",
+        "story",
+        "survival"
+      ]
+    }
+  ],
+  "characters": [
+    {
+      "assetId": "vop-primitive-v0",
+      "status": "approved",
+      "source": "primitive",
+      "label": "Placeholder Vop",
+      "note": "Operator-built from Three.js primitives to the approved look (C02/C03). Not the Meshy asset."
+    },
+    {
+      "assetId": "vop-yellow-static-v1",
+      "status": "pending",
+      "source": "glb",
+      "path": null,
+      "sha256": null,
+      "fallbackAssetId": "vop-sprout-v1",
+      "note": "The default yellow Vop every island names. Plays Sprout Buddy (vop-sprout-v1) for testing; that falls back to the primitive. The licence check (docs/REVIEW_2026-10-27.md B02) is still open."
+    },
+    {
+      "assetId": "vop-sprout-v1",
+      "status": "approved",
+      "source": "glb",
+      "path": "characters/vop-sprout-v1.glb",
+      "sha256": "58b43511b450302ec7b387ea0079ca4cab568c23acdd6c4a09c87ff30aba0f58",
+      "label": "Sprout Buddy",
+      "fallbackAssetId": "vop-primitive-v0",
+      "note": "Meshy Sprout Buddy (source zip sha256 a1e75df5...4fdb8) cleaned and rigged by scripts/blender/vop_rig.py + scripts/rig-vop.mjs. Licence check B02 still open."
+    }
+  ],
+  "props": [
+    {
+      "id": "arch",
+      "path": "props/arch.glb",
+      "sha256": "16946cce1e2efe2242b844f792bd3ce3260dbdbace2aed62fdd8a2e69bdf6785",
+      "tint": "#ff8a7a",
+      "tintLum": 0.3803
+    },
+    {
+      "id": "blaster",
+      "path": "props/blaster.glb",
+      "sha256": "c8df992a130b2d1947f1c74fb45bc8ad30715acbbdb08fd96a39d260321066f5"
+    },
+    {
+      "id": "bush",
+      "path": "props/bush.glb",
+      "sha256": "1aefe28852c87aca807913feacc81c2ff58d65f112698b80fda912ce4630f7d0",
+      "tint": "#8fd06b",
+      "tintLum": 0.3538
+    },
+    {
+      "id": "button",
+      "path": "props/button.glb",
+      "sha256": "493455633fa5c09288afe76bdf61a5922aaf77dd5ed62693ae5aaedd52667c0f",
+      "split": 0.6
+    },
+    {
+      "id": "buy-pad",
+      "path": "props/buy-pad.glb",
+      "sha256": "d821e04c25ba763da0cac4c125b8568c6ea42811794a4621eecd81e7d30b3d14"
+    },
+    {
+      "id": "candle",
+      "path": "props/candle.glb",
+      "sha256": "f944a23461800fe14be71ee11c3886b56a63a44d19211116d8900ec5ca731c21"
+    },
+    {
+      "id": "cash",
+      "path": "props/cash.glb",
+      "sha256": "f35a28c4767811118030cec661739a58f3d29b61c7a413eadf6394583f8e0f0a"
+    },
+    {
+      "id": "checkpoint-post",
+      "path": "props/checkpoint-post.glb",
+      "sha256": "4aee4694163ceb6c66d13eaddeaf1d3aa214576ca94fd07c1b2f07a2bb9e389b",
+      "tint": "#5aa9ff",
+      "tintLum": 0.3811
+    },
+    {
+      "id": "collector",
+      "path": "props/collector.glb",
+      "sha256": "b56608b36d7b0245d26b39870b6bf68bfcd7629c37e40ac69d8b61d4274de4bd"
+    },
+    {
+      "id": "dropper",
+      "path": "props/dropper.glb",
+      "sha256": "d3b90b668e8e070648bfbb22ea29c2cd3de95929480f03e3cca8aa835cd48a4a"
+    },
+    {
+      "id": "enemy",
+      "path": "props/enemy.glb",
+      "sha256": "6bad80112356d7462872f6646d178e91d9374c1fa2a4467d16b90765b34a8c85"
+    },
+    {
+      "id": "extra-life",
+      "path": "props/extra-life.glb",
+      "sha256": "d1d02e08590aaa3af79497fd95f531525e4a25373f4e3ff7772a35ec9746628f"
+    },
+    {
+      "id": "fence",
+      "path": "props/fence.glb",
+      "sha256": "0cda8612a8dc8499ea54465e876f1d827aad319f242e2f1f88e3a3718b0debd1"
+    },
+    {
+      "id": "flower",
+      "path": "props/flower.glb",
+      "sha256": "6500b984a656910751d64870ee68c4408f4d1ddaf560e6bf193302a16290f4ee",
+      "tint": "#ff8a7a",
+      "tintLum": 0.3683
+    },
+    {
+      "id": "goal-flag",
+      "path": "props/goal-flag.glb",
+      "sha256": "f7be2203fc21253c840e048836ecd74ba590fb48e2514eafba42f3c42f0fa4c6",
+      "tint": "#4fd36a",
+      "tintLum": 0.4552
+    },
+    {
+      "id": "heart",
+      "path": "props/heart.glb",
+      "sha256": "ae8448160554e8db9581e769de7c1a911430fa0b70ed102c6dd24c0bac2f3243"
+    },
+    {
+      "id": "key",
+      "path": "props/key.glb",
+      "sha256": "5e24ba9dd08a54fd3c445c98985b2dfe902c1672fde0dcb4c338b23cf5e466d3",
+      "tint": "#d8dde6",
+      "tintLum": 0.4524
+    },
+    {
+      "id": "lamp-post",
+      "path": "props/lamp-post.glb",
+      "sha256": "9cfb6474c5f70169f96d6edbfdbbe500012c6f320e72c2a5c94416a8b51428eb"
+    },
+    {
+      "id": "launch-pad",
+      "path": "props/launch-pad.glb",
+      "sha256": "2763681450288d192d5db1398d9ca30feb9d4615b6391994fa9cb7d07cb35dbf"
+    },
+    {
+      "id": "platform",
+      "path": "props/platform.glb",
+      "sha256": "214a6e1d76c6a2809ac12b4ffcaffdd09807cc4dc247a9f39919440483f232b9",
+      "tint": "#8fd06b",
+      "tintLum": 0.5932
+    },
+    {
+      "id": "ramp",
+      "path": "props/ramp.glb",
+      "sha256": "629f510c35e1e5c7285798210750d1c0707db07beacee399355a38032b15f2f7"
+    },
+    {
+      "id": "rock",
+      "path": "props/rock.glb",
+      "sha256": "83f2e33301e8721fdf590955c17d46beb2d4c4bd6e985b5cc33fd39e49e66b55"
+    },
+    {
+      "id": "seed",
+      "path": "props/seed.glb",
+      "sha256": "591d09eced0969330a39bc5b4e78e055011353c404c3b72265815020032000bd"
+    },
+    {
+      "id": "sign",
+      "path": "props/sign.glb",
+      "sha256": "5a4d62c930fe4e86bd6afceb9557c27f051038b2debd2420873cbe2f506b477c"
+    },
+    {
+      "id": "spawn-pad",
+      "path": "props/spawn-pad.glb",
+      "sha256": "ae4260f5cad736545fb6745b40e910a2b397589780fbfd2d42cdfd381343a07e",
+      "tint": "#7fd3ff",
+      "tintLum": 0.5077
+    },
+    {
+      "id": "stairs",
+      "path": "props/stairs.glb",
+      "sha256": "92b3cb9f432614fa2a0165cd3acdd531cd5ec9f6ce7976c4d70f1148f8a3b8c5"
+    },
+    {
+      "id": "target",
+      "path": "props/target.glb",
+      "sha256": "3557450c873c96465b74459518a4fd91476d5d79596a85b3f657e381bf765c1b"
+    },
+    {
+      "id": "tower",
+      "path": "props/tower.glb",
+      "sha256": "4f83f05a9be4a6aee20c48c1282cc928af788462b697cfab9d715ff97f7019f3",
+      "tint": "#ff8a7a",
+      "tintLum": 0.3813
+    },
+    {
+      "id": "tree",
+      "path": "props/tree.glb",
+      "sha256": "cc11c91958dce8bfdd23445bbc02606af512f16b76b634717fbb71d1b5b05302",
+      "tint": "#5fb55a",
+      "tintLum": 0.3877
+    },
+    {
+      "id": "turret",
+      "path": "props/turret.glb",
+      "sha256": "85a02b04c85d491c628ccbfdf3ea977eea3097840389abbf9e30807b5f2487c1",
+      "split": 0.355
+    }
+  ]
+}

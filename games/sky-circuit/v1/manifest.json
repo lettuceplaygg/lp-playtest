@@ -1,0 +1,664 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "sky-circuit",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Sky Circuit",
+  "templateId": "free-play-v1",
+  "description": "A three-lap race round a floating loop: four gates, a launch over the gap, a speed strip and bumpers. Race your friends in a party.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [],
+  "spawn": [
+    -14,
+    0.5,
+    16
+  ],
+  "spawnYaw": 1.5707963267948966,
+  "sky": "sunset",
+  "entities": [
+    {
+      "id": "south",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        16
+      ],
+      "size": [
+        46,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "east",
+      "kind": "box",
+      "position": [
+        20,
+        -0.5,
+        0
+      ],
+      "size": [
+        6,
+        1,
+        38
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "north-a",
+      "kind": "box",
+      "position": [
+        12.75,
+        -0.5,
+        -16
+      ],
+      "size": [
+        20.5,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "north-b",
+      "kind": "box",
+      "position": [
+        -12.75,
+        -0.5,
+        -16
+      ],
+      "size": [
+        20.5,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "west",
+      "kind": "box",
+      "position": [
+        -20,
+        -0.5,
+        0
+      ],
+      "size": [
+        6,
+        1,
+        38
+      ],
+      "solid": true,
+      "color": "#c3cbd8",
+      "finish": "stone"
+    },
+    {
+      "id": "infield",
+      "kind": "box",
+      "position": [
+        0,
+        -0.6,
+        0
+      ],
+      "size": [
+        30,
+        1,
+        22
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "kerb-1",
+      "kind": "box",
+      "position": [
+        -20,
+        0.06,
+        16
+      ],
+      "size": [
+        6,
+        0.1,
+        6
+      ],
+      "solid": false,
+      "color": "#ffffff"
+    },
+    {
+      "id": "kerb-2",
+      "kind": "box",
+      "position": [
+        20,
+        0.06,
+        16
+      ],
+      "size": [
+        6,
+        0.1,
+        6
+      ],
+      "solid": false,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "kerb-3",
+      "kind": "box",
+      "position": [
+        20,
+        0.06,
+        -16
+      ],
+      "size": [
+        6,
+        0.1,
+        6
+      ],
+      "solid": false,
+      "color": "#ffffff"
+    },
+    {
+      "id": "kerb-4",
+      "kind": "box",
+      "position": [
+        -20,
+        0.06,
+        -16
+      ],
+      "size": [
+        6,
+        0.1,
+        6
+      ],
+      "solid": false,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "finish",
+      "kind": "race",
+      "position": [
+        -10,
+        1.5,
+        16
+      ],
+      "laps": 3,
+      "countdown": 3,
+      "size": [
+        1,
+        3,
+        6
+      ],
+      "path": [
+        [
+          16,
+          0,
+          16
+        ],
+        [
+          20.5,
+          0,
+          12
+        ],
+        [
+          21.6,
+          0,
+          6
+        ],
+        [
+          21.6,
+          0,
+          3
+        ],
+        [
+          18.4,
+          0,
+          -0.5
+        ],
+        [
+          18.4,
+          0,
+          -4
+        ],
+        [
+          21.6,
+          0,
+          -7.5
+        ],
+        [
+          21.6,
+          0,
+          -10.5
+        ],
+        [
+          20,
+          0,
+          -13.5
+        ],
+        [
+          16,
+          0,
+          -16
+        ],
+        [
+          8,
+          0,
+          -16
+        ],
+        [
+          -6,
+          0,
+          -16
+        ],
+        [
+          -16,
+          0,
+          -16
+        ],
+        [
+          -20,
+          0,
+          -12
+        ],
+        [
+          -20,
+          0,
+          12
+        ],
+        [
+          -16,
+          0,
+          16
+        ],
+        [
+          -8,
+          0,
+          16
+        ]
+      ]
+    },
+    {
+      "id": "items-1",
+      "kind": "itembox",
+      "position": [
+        2,
+        0,
+        14.3
+      ],
+      "respawnSeconds": 1.5
+    },
+    {
+      "id": "items-2",
+      "kind": "itembox",
+      "position": [
+        2,
+        0,
+        16
+      ],
+      "respawnSeconds": 1.5
+    },
+    {
+      "id": "items-3",
+      "kind": "itembox",
+      "position": [
+        2,
+        0,
+        17.7
+      ],
+      "respawnSeconds": 1.5
+    },
+    {
+      "id": "boost-pad-1",
+      "kind": "boostpad",
+      "position": [
+        -20,
+        0,
+        8
+      ],
+      "radius": 1.4,
+      "power": 6,
+      "seconds": 1
+    },
+    {
+      "id": "gate-1",
+      "kind": "checkpoint",
+      "position": [
+        20,
+        0.5,
+        8
+      ],
+      "order": 1,
+      "radius": 3
+    },
+    {
+      "id": "gate-2",
+      "kind": "checkpoint",
+      "position": [
+        16,
+        0.5,
+        -16
+      ],
+      "order": 2,
+      "radius": 3
+    },
+    {
+      "id": "gate-3",
+      "kind": "checkpoint",
+      "position": [
+        -14,
+        0.5,
+        -16
+      ],
+      "order": 3,
+      "radius": 3
+    },
+    {
+      "id": "gate-4",
+      "kind": "checkpoint",
+      "position": [
+        -20,
+        0.5,
+        2
+      ],
+      "order": 4,
+      "radius": 3
+    },
+    {
+      "id": "jump",
+      "kind": "launcher",
+      "position": [
+        4.5,
+        0,
+        -16
+      ],
+      "radius": 1.4,
+      "up": 13,
+      "forward": 11
+    },
+    {
+      "id": "boost",
+      "kind": "mutator",
+      "position": [
+        -20,
+        1,
+        -6
+      ],
+      "size": [
+        6,
+        2,
+        10
+      ],
+      "speed": 1.8,
+      "jump": 1
+    },
+    {
+      "id": "boost-paint",
+      "kind": "box",
+      "position": [
+        -20,
+        0.03,
+        -6
+      ],
+      "size": [
+        5.6,
+        0.05,
+        9.6
+      ],
+      "solid": false,
+      "color": "#7fd3ff"
+    },
+    {
+      "id": "bumper-1",
+      "kind": "hazard",
+      "position": [
+        18.5,
+        0.2,
+        3
+      ],
+      "size": [
+        3,
+        0.4,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "id": "bumper-2",
+      "kind": "hazard",
+      "position": [
+        21.5,
+        0.2,
+        -4
+      ],
+      "size": [
+        3,
+        0.4,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "id": "bumper-3",
+      "kind": "hazard",
+      "position": [
+        18.5,
+        0.2,
+        -10
+      ],
+      "size": [
+        3,
+        0.4,
+        1
+      ],
+      "damage": 0
+    },
+    {
+      "id": "tower-1",
+      "kind": "prop",
+      "position": [
+        -26,
+        0,
+        22
+      ],
+      "shape": "tower",
+      "scale": 1.2,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "tower-2",
+      "kind": "prop",
+      "position": [
+        26,
+        0,
+        22
+      ],
+      "shape": "tower",
+      "scale": 1.2,
+      "color": "#c9b3ff"
+    },
+    {
+      "id": "tower-3",
+      "kind": "prop",
+      "position": [
+        26,
+        0,
+        -22
+      ],
+      "shape": "tower",
+      "scale": 1.2,
+      "color": "#8ec5ff"
+    },
+    {
+      "id": "tower-4",
+      "kind": "prop",
+      "position": [
+        -26,
+        0,
+        -22
+      ],
+      "shape": "tower",
+      "scale": 1.2,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "pad-1",
+      "kind": "box",
+      "position": [
+        -26,
+        -0.5,
+        22
+      ],
+      "size": [
+        4,
+        1,
+        4
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "pad-2",
+      "kind": "box",
+      "position": [
+        26,
+        -0.5,
+        22
+      ],
+      "size": [
+        4,
+        1,
+        4
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "pad-3",
+      "kind": "box",
+      "position": [
+        26,
+        -0.5,
+        -22
+      ],
+      "size": [
+        4,
+        1,
+        4
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "pad-4",
+      "kind": "box",
+      "position": [
+        -26,
+        -0.5,
+        -22
+      ],
+      "size": [
+        4,
+        1,
+        4
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "tree-1",
+      "kind": "prop",
+      "position": [
+        -6,
+        -0.1,
+        0
+      ],
+      "shape": "tree",
+      "scale": 1.3,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-2",
+      "kind": "prop",
+      "position": [
+        6,
+        -0.1,
+        3
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "tree-3",
+      "kind": "prop",
+      "position": [
+        0,
+        -0.1,
+        -5
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "flower-1",
+      "kind": "prop",
+      "position": [
+        3,
+        -0.1,
+        -2
+      ],
+      "shape": "flower",
+      "scale": 1,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "sign-1",
+      "kind": "sign",
+      "position": [
+        -16,
+        0,
+        13.5
+      ],
+      "text": "Three laps: pass the four gates in order, then cross the line. Weave the bumpers, grab an item box, launch over the gap!",
+      "radius": 2.5
+    }
+  ],
+  "rules": {
+    "mode": "free",
+    "requiredPickupValue": 0,
+    "timeLimitSeconds": 0,
+    "fallBelowY": -6,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": false,
+    "health": 0,
+    "lives": 0,
+    "join": "nextRound"
+  }
+}

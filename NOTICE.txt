@@ -1,0 +1,4 @@
+Copyright (c) 2026 VOP. All rights reserved.
+
+This repository holds the built files of a private playtest. No licence is granted:
+you may not copy, modify, redistribute or reuse any part of it.

@@ -1,0 +1,390 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "launch-leap",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Launch Pad Leap",
+  "templateId": "checkpoint-trial-v1",
+  "description": "Launch pads, lifts and a pocket of floaty air. Hit four checkpoints in order and reach the summit.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [],
+  "spawn": [
+    0,
+    0.5,
+    11
+  ],
+  "spawnYaw": 3.141592653589793,
+  "sky": "sunset",
+  "entities": [
+    {
+      "id": "start",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        10
+      ],
+      "size": [
+        8,
+        1,
+        8
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "pad-1",
+      "kind": "launcher",
+      "position": [
+        0,
+        0,
+        6.5
+      ],
+      "radius": 0.9,
+      "up": 18,
+      "forward": 8
+    },
+    {
+      "id": "isle-1",
+      "kind": "box",
+      "position": [
+        0,
+        2.5,
+        -2
+      ],
+      "size": [
+        6,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "cp-1",
+      "kind": "checkpoint",
+      "position": [
+        0,
+        3.5,
+        -2
+      ],
+      "radius": 1.2,
+      "order": 1
+    },
+    {
+      "id": "lift-1",
+      "kind": "mover",
+      "position": [
+        6,
+        2.75,
+        -6
+      ],
+      "size": [
+        3,
+        0.5,
+        3
+      ],
+      "color": "#8ec5ff",
+      "to": [
+        6,
+        7.25,
+        -6
+      ],
+      "seconds": 3,
+      "pause": 1,
+      "autoStart": true
+    },
+    {
+      "id": "isle-2",
+      "kind": "box",
+      "position": [
+        12,
+        7,
+        -8
+      ],
+      "size": [
+        6,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#c9b3ff"
+    },
+    {
+      "id": "cp-2",
+      "kind": "checkpoint",
+      "position": [
+        12,
+        8,
+        -8
+      ],
+      "radius": 1.2,
+      "order": 2
+    },
+    {
+      "id": "floaty",
+      "kind": "mutator",
+      "position": [
+        12,
+        9,
+        -16
+      ],
+      "size": [
+        5,
+        4,
+        9
+      ],
+      "speed": 1,
+      "jump": 1.6
+    },
+    {
+      "id": "step-a",
+      "kind": "box",
+      "position": [
+        12,
+        7,
+        -14
+      ],
+      "size": [
+        2,
+        1,
+        2
+      ],
+      "solid": true,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "step-b",
+      "kind": "box",
+      "position": [
+        12,
+        8.5,
+        -18
+      ],
+      "size": [
+        2,
+        1,
+        2
+      ],
+      "solid": true,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "isle-3",
+      "kind": "box",
+      "position": [
+        4,
+        9,
+        -22
+      ],
+      "size": [
+        6,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "cp-3",
+      "kind": "checkpoint",
+      "position": [
+        4,
+        10,
+        -22
+      ],
+      "radius": 1.2,
+      "order": 3
+    },
+    {
+      "id": "slider",
+      "kind": "mover",
+      "position": [
+        -3,
+        9.25,
+        -22
+      ],
+      "size": [
+        3,
+        0.5,
+        3
+      ],
+      "color": "#8ec5ff",
+      "to": [
+        -11,
+        9.25,
+        -22
+      ],
+      "seconds": 3.5,
+      "pause": 0.8,
+      "autoStart": true
+    },
+    {
+      "id": "isle-4",
+      "kind": "box",
+      "position": [
+        -15,
+        9,
+        -22
+      ],
+      "size": [
+        6,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "spikes-1",
+      "kind": "hazard",
+      "position": [
+        -15,
+        9.7,
+        -22
+      ],
+      "size": [
+        2,
+        0.4,
+        2
+      ],
+      "damage": 0
+    },
+    {
+      "id": "pad-2",
+      "kind": "launcher",
+      "position": [
+        -15,
+        9.5,
+        -19.5
+      ],
+      "radius": 0.9,
+      "up": 20,
+      "forward": 5
+    },
+    {
+      "id": "cp-4",
+      "kind": "checkpoint",
+      "position": [
+        -15,
+        10.5,
+        -24
+      ],
+      "radius": 1.2,
+      "order": 4
+    },
+    {
+      "id": "summit",
+      "kind": "box",
+      "position": [
+        -15,
+        14,
+        -12
+      ],
+      "size": [
+        6,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "tower-s",
+      "kind": "prop",
+      "position": [
+        -17,
+        14.5,
+        -14
+      ],
+      "shape": "tower",
+      "scale": 0.9,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "flower-s",
+      "kind": "prop",
+      "position": [
+        -13,
+        14.5,
+        -10
+      ],
+      "shape": "flower",
+      "scale": 1,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "sign-1",
+      "kind": "sign",
+      "position": [
+        2.5,
+        0,
+        9
+      ],
+      "text": "Walk onto the orange pad to launch, and steer in the air. Reach the checkpoints in order, then the summit.",
+      "radius": 2.5
+    },
+    {
+      "id": "sign-2",
+      "kind": "sign",
+      "position": [
+        10,
+        7.5,
+        -10
+      ],
+      "text": "The purple air lets you jump higher. Hop the yellow steps.",
+      "radius": 2.5
+    },
+    {
+      "id": "exit-1",
+      "kind": "goal",
+      "position": [
+        -15,
+        15,
+        -12
+      ],
+      "radius": 1.2
+    },
+    {
+      "id": "tree-a",
+      "kind": "prop",
+      "position": [
+        -3,
+        0,
+        12
+      ],
+      "shape": "tree",
+      "scale": 0.8,
+      "color": "#5fb55a"
+    }
+  ],
+  "rules": {
+    "mode": "checkpoints",
+    "requiredPickupValue": 0,
+    "timeLimitSeconds": 240,
+    "fallBelowY": -10,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": false,
+    "health": 0,
+    "lives": 0
+  }
+}

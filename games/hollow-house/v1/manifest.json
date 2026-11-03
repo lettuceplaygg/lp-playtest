@@ -1,0 +1,944 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "hollow-house",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Hollow House",
+  "templateId": "collect-and-exit-v1",
+  "description": "A dark house, a flashlight and five candles. The front door shuts behind you until you find them all. Spooky, with sudden sounds.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [
+    {
+      "from": "zone-hall",
+      "event": "entered",
+      "to": "front-door",
+      "action": "show"
+    },
+    {
+      "from": "zone-hall",
+      "event": "entered",
+      "to": "speaker-slam",
+      "action": "play"
+    },
+    {
+      "from": "zone-hall",
+      "event": "entered",
+      "to": "light-hall",
+      "action": "flicker"
+    },
+    {
+      "from": "zone-hall",
+      "event": "entered",
+      "to": "sign-trapped",
+      "action": "say"
+    },
+    {
+      "from": "zone-left",
+      "event": "entered",
+      "to": "light-left",
+      "action": "switchOn"
+    },
+    {
+      "from": "zone-left",
+      "event": "entered",
+      "to": "speaker-heart",
+      "action": "play"
+    },
+    {
+      "from": "zone-right",
+      "event": "entered",
+      "to": "random-right",
+      "action": "pick"
+    },
+    {
+      "from": "random-right",
+      "event": "out1",
+      "to": "speaker-scare",
+      "action": "play"
+    },
+    {
+      "from": "random-right",
+      "event": "out1",
+      "to": "light-right",
+      "action": "flicker"
+    },
+    {
+      "from": "random-right",
+      "event": "out2",
+      "to": "speaker-creak",
+      "action": "play"
+    },
+    {
+      "from": "timer-thunder",
+      "event": "done",
+      "to": "speaker-thunder",
+      "action": "play"
+    },
+    {
+      "from": "timer-thunder",
+      "event": "done",
+      "to": "light-porch",
+      "action": "flicker"
+    },
+    {
+      "from": "timer-thunder",
+      "event": "done",
+      "to": "light-hall",
+      "action": "flicker"
+    },
+    {
+      "from": "candle-1",
+      "event": "collected",
+      "to": "candles",
+      "action": "add",
+      "value": 1
+    },
+    {
+      "from": "candle-2",
+      "event": "collected",
+      "to": "candles",
+      "action": "add",
+      "value": 1
+    },
+    {
+      "from": "candle-3",
+      "event": "collected",
+      "to": "candles",
+      "action": "add",
+      "value": 1
+    },
+    {
+      "from": "candle-4",
+      "event": "collected",
+      "to": "candles",
+      "action": "add",
+      "value": 1
+    },
+    {
+      "from": "candle-5",
+      "event": "collected",
+      "to": "candles",
+      "action": "add",
+      "value": 1
+    },
+    {
+      "from": "candles",
+      "event": "reached",
+      "to": "front-door",
+      "action": "hide"
+    },
+    {
+      "from": "candles",
+      "event": "reached",
+      "to": "zone-hall",
+      "action": "hide"
+    },
+    {
+      "from": "candles",
+      "event": "reached",
+      "to": "speaker-open",
+      "action": "play"
+    },
+    {
+      "from": "candles",
+      "event": "reached",
+      "to": "sign-free",
+      "action": "say"
+    },
+    {
+      "from": "candles",
+      "event": "reached",
+      "to": "light-left",
+      "action": "switchOn"
+    }
+  ],
+  "spawn": [
+    0,
+    0.5,
+    16
+  ],
+  "spawnYaw": 3.141592653589793,
+  "sky": "night",
+  "style": "horror",
+  "entities": [
+    {
+      "id": "lawn",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        2
+      ],
+      "size": [
+        34,
+        1,
+        36
+      ],
+      "solid": true,
+      "color": "#4f6b45"
+    },
+    {
+      "id": "floor",
+      "kind": "box",
+      "position": [
+        0,
+        -0.48,
+        -1
+      ],
+      "size": [
+        20,
+        1,
+        18
+      ],
+      "solid": true,
+      "color": "#7a7f8c",
+      "finish": "stone"
+    },
+    {
+      "id": "path",
+      "kind": "box",
+      "position": [
+        0,
+        -0.47,
+        12
+      ],
+      "size": [
+        3,
+        1,
+        8
+      ],
+      "solid": true,
+      "color": "#8a8f9a",
+      "finish": "stone"
+    },
+    {
+      "id": "wall-front-l",
+      "kind": "box",
+      "position": [
+        -5.75,
+        2,
+        8
+      ],
+      "size": [
+        8.5,
+        4,
+        0.5
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "wall-front-r",
+      "kind": "box",
+      "position": [
+        5.75,
+        2,
+        8
+      ],
+      "size": [
+        8.5,
+        4,
+        0.5
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "lintel",
+      "kind": "box",
+      "position": [
+        0,
+        3.5,
+        8
+      ],
+      "size": [
+        3,
+        1,
+        0.5
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "wall-back",
+      "kind": "box",
+      "position": [
+        0,
+        2,
+        -10
+      ],
+      "size": [
+        20.5,
+        4,
+        0.5
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "wall-left",
+      "kind": "box",
+      "position": [
+        -10,
+        2,
+        -1
+      ],
+      "size": [
+        0.5,
+        4,
+        18
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "wall-right",
+      "kind": "box",
+      "position": [
+        10,
+        2,
+        -1
+      ],
+      "size": [
+        0.5,
+        4,
+        18
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "wall-hall-l",
+      "kind": "box",
+      "position": [
+        -8.75,
+        2,
+        -1
+      ],
+      "size": [
+        2.5,
+        4,
+        0.5
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "wall-hall-c",
+      "kind": "box",
+      "position": [
+        0,
+        2,
+        -1
+      ],
+      "size": [
+        9,
+        4,
+        0.5
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "wall-hall-r",
+      "kind": "box",
+      "position": [
+        8.75,
+        2,
+        -1
+      ],
+      "size": [
+        2.5,
+        4,
+        0.5
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "wall-mid",
+      "kind": "box",
+      "position": [
+        0,
+        2,
+        -5.5
+      ],
+      "size": [
+        0.5,
+        4,
+        9
+      ],
+      "solid": true,
+      "color": "#6b4f3a",
+      "finish": "wood"
+    },
+    {
+      "id": "roof",
+      "kind": "box",
+      "position": [
+        0,
+        4.25,
+        -1
+      ],
+      "size": [
+        21,
+        0.5,
+        19
+      ],
+      "solid": false
+    },
+    {
+      "id": "front-door",
+      "kind": "box",
+      "position": [
+        0,
+        1.5,
+        8
+      ],
+      "size": [
+        3,
+        3,
+        0.4
+      ],
+      "solid": true,
+      "color": "#3b2a1f",
+      "finish": "wood",
+      "hidden": true
+    },
+    {
+      "id": "table-l",
+      "kind": "box",
+      "position": [
+        -6,
+        0.5,
+        -6
+      ],
+      "size": [
+        3,
+        1,
+        1.6
+      ],
+      "solid": true,
+      "color": "#5a3f2c",
+      "finish": "wood"
+    },
+    {
+      "id": "table-r",
+      "kind": "box",
+      "position": [
+        6,
+        0.5,
+        -7
+      ],
+      "size": [
+        2,
+        1,
+        2
+      ],
+      "solid": true,
+      "color": "#5a3f2c",
+      "finish": "wood"
+    },
+    {
+      "id": "shelf-hall",
+      "kind": "box",
+      "position": [
+        -9.4,
+        1.25,
+        3
+      ],
+      "size": [
+        0.6,
+        2.5,
+        3
+      ],
+      "solid": true,
+      "color": "#4a3424",
+      "finish": "wood"
+    },
+    {
+      "id": "clock",
+      "kind": "box",
+      "position": [
+        9.3,
+        1.5,
+        4
+      ],
+      "size": [
+        0.6,
+        3,
+        0.8
+      ],
+      "solid": true,
+      "color": "#4a3424",
+      "finish": "wood"
+    },
+    {
+      "id": "tree-1",
+      "kind": "prop",
+      "position": [
+        -12,
+        0,
+        12
+      ],
+      "shape": "tree",
+      "scale": 1.2,
+      "color": "#5a4a3a"
+    },
+    {
+      "id": "tree-2",
+      "kind": "prop",
+      "position": [
+        12,
+        0,
+        13
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5a4a3a"
+    },
+    {
+      "id": "tree-3",
+      "kind": "prop",
+      "position": [
+        -14,
+        0,
+        -6
+      ],
+      "shape": "tree",
+      "scale": 1.4,
+      "color": "#4a3e33"
+    },
+    {
+      "id": "tree-4",
+      "kind": "prop",
+      "position": [
+        14,
+        0,
+        -4
+      ],
+      "shape": "tree",
+      "scale": 1.1,
+      "color": "#4a3e33"
+    },
+    {
+      "id": "rock-1",
+      "kind": "prop",
+      "position": [
+        -6,
+        0,
+        15
+      ],
+      "shape": "rock",
+      "scale": 1,
+      "color": "#6c7280"
+    },
+    {
+      "id": "rock-2",
+      "kind": "prop",
+      "position": [
+        7,
+        0,
+        16
+      ],
+      "shape": "rock",
+      "scale": 0.8,
+      "color": "#6c7280"
+    },
+    {
+      "id": "fence-1",
+      "kind": "prop",
+      "position": [
+        -6,
+        0,
+        18.5
+      ],
+      "shape": "fence",
+      "scale": 1,
+      "color": "#5a4a3a"
+    },
+    {
+      "id": "fence-2",
+      "kind": "prop",
+      "position": [
+        6,
+        0,
+        18.5
+      ],
+      "shape": "fence",
+      "scale": 1,
+      "color": "#5a4a3a"
+    },
+    {
+      "id": "tower-1",
+      "kind": "prop",
+      "position": [
+        -10.5,
+        4,
+        -10.5
+      ],
+      "shape": "tower",
+      "scale": 0.8,
+      "color": "#4f5566"
+    },
+    {
+      "id": "tower-2",
+      "kind": "prop",
+      "position": [
+        10.5,
+        4,
+        -10.5
+      ],
+      "shape": "tower",
+      "scale": 0.8,
+      "color": "#4f5566"
+    },
+    {
+      "id": "light-porch",
+      "kind": "light",
+      "position": [
+        2.2,
+        0,
+        9
+      ],
+      "color": "#ffd27a",
+      "intensity": 1.5,
+      "range": 9,
+      "mode": "flicker",
+      "on": true,
+      "fixture": "lantern"
+    },
+    {
+      "id": "light-hall",
+      "kind": "light",
+      "position": [
+        0,
+        3.2,
+        3.5
+      ],
+      "color": "#ffd27a",
+      "intensity": 1.8,
+      "range": 12,
+      "mode": "flicker",
+      "on": true,
+      "fixture": "bulb"
+    },
+    {
+      "id": "light-left",
+      "kind": "light",
+      "position": [
+        -6,
+        1,
+        -6
+      ],
+      "color": "#ffb35a",
+      "intensity": 1.5,
+      "range": 9,
+      "mode": "steady",
+      "on": false,
+      "fixture": "lantern"
+    },
+    {
+      "id": "light-right",
+      "kind": "light",
+      "position": [
+        6,
+        3.2,
+        -6
+      ],
+      "color": "#ff4a4a",
+      "intensity": 1.2,
+      "range": 9,
+      "mode": "pulse",
+      "on": true,
+      "fixture": "bulb"
+    },
+    {
+      "id": "light-hall-l",
+      "kind": "light",
+      "position": [
+        -8,
+        3.2,
+        0.2
+      ],
+      "color": "#ffd27a",
+      "intensity": 0.8,
+      "range": 6,
+      "mode": "steady",
+      "on": true,
+      "fixture": "bulb"
+    },
+    {
+      "id": "candle-1",
+      "kind": "pickup",
+      "position": [
+        -8,
+        0.45,
+        6
+      ],
+      "value": 1
+    },
+    {
+      "id": "candle-2",
+      "kind": "pickup",
+      "position": [
+        8,
+        0.45,
+        1
+      ],
+      "value": 1
+    },
+    {
+      "id": "candle-3",
+      "kind": "pickup",
+      "position": [
+        -8,
+        0.45,
+        -8
+      ],
+      "value": 1
+    },
+    {
+      "id": "candle-4",
+      "kind": "pickup",
+      "position": [
+        8,
+        0.45,
+        -8.5
+      ],
+      "value": 1
+    },
+    {
+      "id": "candle-5",
+      "kind": "pickup",
+      "position": [
+        3,
+        0.45,
+        -3
+      ],
+      "value": 1
+    },
+    {
+      "id": "zone-hall",
+      "kind": "zone",
+      "position": [
+        0,
+        1,
+        4.5
+      ],
+      "size": [
+        6,
+        2,
+        3
+      ],
+      "holdSeconds": 0
+    },
+    {
+      "id": "zone-left",
+      "kind": "zone",
+      "position": [
+        -5,
+        1,
+        -5.5
+      ],
+      "size": [
+        8,
+        2,
+        7
+      ],
+      "holdSeconds": 0
+    },
+    {
+      "id": "zone-right",
+      "kind": "zone",
+      "position": [
+        5,
+        1,
+        -5.5
+      ],
+      "size": [
+        8,
+        2,
+        7
+      ],
+      "holdSeconds": 0
+    },
+    {
+      "id": "speaker-slam",
+      "kind": "speaker",
+      "position": [
+        1.5,
+        0,
+        7
+      ],
+      "sound": "creak"
+    },
+    {
+      "id": "speaker-heart",
+      "kind": "speaker",
+      "position": [
+        -6,
+        0,
+        -4
+      ],
+      "sound": "heartbeat"
+    },
+    {
+      "id": "speaker-scare",
+      "kind": "speaker",
+      "position": [
+        6,
+        0,
+        -4
+      ],
+      "sound": "scare"
+    },
+    {
+      "id": "speaker-creak",
+      "kind": "speaker",
+      "position": [
+        7,
+        0,
+        -3
+      ],
+      "sound": "creak"
+    },
+    {
+      "id": "speaker-thunder",
+      "kind": "speaker",
+      "position": [
+        0,
+        0,
+        12
+      ],
+      "sound": "thunder"
+    },
+    {
+      "id": "speaker-open",
+      "kind": "speaker",
+      "position": [
+        -1.5,
+        0,
+        7
+      ],
+      "sound": "creak"
+    },
+    {
+      "id": "random-right",
+      "kind": "random",
+      "position": [
+        7,
+        0,
+        -2
+      ],
+      "outputs": 2
+    },
+    {
+      "id": "timer-thunder",
+      "kind": "timer",
+      "position": [
+        -2,
+        0,
+        12
+      ],
+      "seconds": 15,
+      "autoStart": true,
+      "loop": true
+    },
+    {
+      "id": "candles",
+      "kind": "counter",
+      "position": [
+        2,
+        0,
+        12
+      ],
+      "target": 5,
+      "label": "Candles",
+      "hud": false
+    },
+    {
+      "id": "sign-porch",
+      "kind": "sign",
+      "position": [
+        -2.2,
+        0,
+        10
+      ],
+      "text": "Find the five candles in Hollow House. Do not trust the lights.",
+      "radius": 2.5
+    },
+    {
+      "id": "sign-trapped",
+      "kind": "sign",
+      "position": [
+        -9.2,
+        0,
+        7.2
+      ],
+      "text": "The door slammed shut behind you...",
+      "radius": 0
+    },
+    {
+      "id": "sign-free",
+      "kind": "sign",
+      "position": [
+        9.2,
+        0,
+        7.2
+      ],
+      "text": "The door creaked open. Get out!",
+      "radius": 0
+    },
+    {
+      "id": "exit-1",
+      "kind": "goal",
+      "position": [
+        -7,
+        0.5,
+        13
+      ],
+      "radius": 1.2
+    }
+  ],
+  "rules": {
+    "mode": "collect",
+    "requiredPickupValue": 5,
+    "timeLimitSeconds": 0,
+    "fallBelowY": -6,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": false,
+    "health": 0,
+    "lives": 0,
+    "camera": "choice",
+    "flashlight": true
+  }
+}
