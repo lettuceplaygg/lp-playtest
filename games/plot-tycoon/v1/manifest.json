@@ -1,0 +1,886 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "plot-tycoon",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Plot Tycoon",
+  "templateId": "free-play-v1",
+  "description": "Four plots, one each: join any time, run your droppers, buy upgrades and a crown. Your plot is kept between visits.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [
+    {
+      "from": "buy-1-b",
+      "event": "bought",
+      "to": "dropper-1-b",
+      "action": "show"
+    },
+    {
+      "from": "buy-1-b",
+      "event": "bought",
+      "to": "buy-1-crown",
+      "action": "show"
+    },
+    {
+      "from": "buy-1-up",
+      "event": "bought",
+      "to": "dropper-1-a",
+      "action": "upgrade",
+      "value": 1
+    },
+    {
+      "from": "buy-1-up",
+      "event": "bought",
+      "to": "dropper-1-b",
+      "action": "upgrade",
+      "value": 1
+    },
+    {
+      "from": "buy-1-crown",
+      "event": "bought",
+      "to": "crown-1",
+      "action": "show"
+    },
+    {
+      "from": "buy-1-crown",
+      "event": "bought",
+      "to": "sign-crown-1",
+      "action": "say"
+    },
+    {
+      "from": "buy-2-b",
+      "event": "bought",
+      "to": "dropper-2-b",
+      "action": "show"
+    },
+    {
+      "from": "buy-2-b",
+      "event": "bought",
+      "to": "buy-2-crown",
+      "action": "show"
+    },
+    {
+      "from": "buy-2-up",
+      "event": "bought",
+      "to": "dropper-2-a",
+      "action": "upgrade",
+      "value": 1
+    },
+    {
+      "from": "buy-2-up",
+      "event": "bought",
+      "to": "dropper-2-b",
+      "action": "upgrade",
+      "value": 1
+    },
+    {
+      "from": "buy-2-crown",
+      "event": "bought",
+      "to": "crown-2",
+      "action": "show"
+    },
+    {
+      "from": "buy-2-crown",
+      "event": "bought",
+      "to": "sign-crown-2",
+      "action": "say"
+    },
+    {
+      "from": "buy-3-b",
+      "event": "bought",
+      "to": "dropper-3-b",
+      "action": "show"
+    },
+    {
+      "from": "buy-3-b",
+      "event": "bought",
+      "to": "buy-3-crown",
+      "action": "show"
+    },
+    {
+      "from": "buy-3-up",
+      "event": "bought",
+      "to": "dropper-3-a",
+      "action": "upgrade",
+      "value": 1
+    },
+    {
+      "from": "buy-3-up",
+      "event": "bought",
+      "to": "dropper-3-b",
+      "action": "upgrade",
+      "value": 1
+    },
+    {
+      "from": "buy-3-crown",
+      "event": "bought",
+      "to": "crown-3",
+      "action": "show"
+    },
+    {
+      "from": "buy-3-crown",
+      "event": "bought",
+      "to": "sign-crown-3",
+      "action": "say"
+    },
+    {
+      "from": "buy-4-b",
+      "event": "bought",
+      "to": "dropper-4-b",
+      "action": "show"
+    },
+    {
+      "from": "buy-4-b",
+      "event": "bought",
+      "to": "buy-4-crown",
+      "action": "show"
+    },
+    {
+      "from": "buy-4-up",
+      "event": "bought",
+      "to": "dropper-4-a",
+      "action": "upgrade",
+      "value": 1
+    },
+    {
+      "from": "buy-4-up",
+      "event": "bought",
+      "to": "dropper-4-b",
+      "action": "upgrade",
+      "value": 1
+    },
+    {
+      "from": "buy-4-crown",
+      "event": "bought",
+      "to": "crown-4",
+      "action": "show"
+    },
+    {
+      "from": "buy-4-crown",
+      "event": "bought",
+      "to": "sign-crown-4",
+      "action": "say"
+    }
+  ],
+  "spawn": [
+    0,
+    0.5,
+    3
+  ],
+  "spawnYaw": 3.141592653589793,
+  "sky": "day",
+  "entities": [
+    {
+      "id": "ground",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        0
+      ],
+      "size": [
+        40,
+        1,
+        40
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "hub",
+      "kind": "box",
+      "position": [
+        0,
+        -0.48,
+        0
+      ],
+      "size": [
+        6,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "sign-hub",
+      "kind": "sign",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "text": "Everyone who joins gets their own plot. Run your dropper, buy upgrades, build a crown. Kept for next time.",
+      "radius": 3
+    },
+    {
+      "id": "tree-1",
+      "kind": "prop",
+      "position": [
+        0,
+        0,
+        17
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-2",
+      "kind": "prop",
+      "position": [
+        0,
+        0,
+        -17
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-3",
+      "kind": "prop",
+      "position": [
+        17,
+        0,
+        0
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-4",
+      "kind": "prop",
+      "position": [
+        -17,
+        0,
+        0
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "plot-1",
+      "kind": "plot",
+      "position": [
+        -10,
+        0,
+        -10
+      ],
+      "number": 1,
+      "size": [
+        16,
+        6,
+        16
+      ]
+    },
+    {
+      "id": "yard-1",
+      "kind": "box",
+      "position": [
+        -10,
+        -0.47,
+        -10
+      ],
+      "size": [
+        15,
+        1,
+        15
+      ],
+      "solid": true,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "start-1",
+      "kind": "spawnpad",
+      "position": [
+        -10,
+        0,
+        -4
+      ],
+      "team": 0
+    },
+    {
+      "id": "dropper-1-a",
+      "kind": "generator",
+      "position": [
+        -13,
+        0,
+        -10
+      ],
+      "amount": 2,
+      "every": 2,
+      "autoCollect": false
+    },
+    {
+      "id": "dropper-1-b",
+      "kind": "generator",
+      "position": [
+        -7,
+        0,
+        -10
+      ],
+      "amount": 3,
+      "every": 2,
+      "autoCollect": false,
+      "hidden": true
+    },
+    {
+      "id": "collect-1",
+      "kind": "collector",
+      "position": [
+        -10,
+        0,
+        -7
+      ],
+      "radius": 1.1
+    },
+    {
+      "id": "buy-1-b",
+      "kind": "shop",
+      "position": [
+        -7,
+        0,
+        -7
+      ],
+      "label": "2nd dropper",
+      "price": 25,
+      "repeat": false,
+      "priceStep": 0,
+      "radius": 0.8
+    },
+    {
+      "id": "buy-1-up",
+      "kind": "shop",
+      "position": [
+        -13,
+        0,
+        -7
+      ],
+      "label": "Faster drops",
+      "price": 30,
+      "repeat": true,
+      "priceStep": 30,
+      "radius": 0.8
+    },
+    {
+      "id": "buy-1-crown",
+      "kind": "shop",
+      "position": [
+        -10,
+        0,
+        -14
+      ],
+      "label": "Crown",
+      "price": 300,
+      "repeat": false,
+      "priceStep": 0,
+      "radius": 0.9,
+      "hidden": true
+    },
+    {
+      "id": "crown-1",
+      "kind": "box",
+      "position": [
+        -10,
+        0.9,
+        -16
+      ],
+      "size": [
+        1.2,
+        1.8,
+        1.2
+      ],
+      "solid": true,
+      "color": "#ffcf4a",
+      "hidden": true,
+      "finish": "glossy"
+    },
+    {
+      "id": "sign-crown-1",
+      "kind": "sign",
+      "position": [
+        -10,
+        0,
+        -10
+      ],
+      "text": "Crown built! Your plot is the talk of the island.",
+      "radius": 0
+    },
+    {
+      "id": "plot-2",
+      "kind": "plot",
+      "position": [
+        10,
+        0,
+        -10
+      ],
+      "number": 2,
+      "size": [
+        16,
+        6,
+        16
+      ]
+    },
+    {
+      "id": "yard-2",
+      "kind": "box",
+      "position": [
+        10,
+        -0.47,
+        -10
+      ],
+      "size": [
+        15,
+        1,
+        15
+      ],
+      "solid": true,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "start-2",
+      "kind": "spawnpad",
+      "position": [
+        10,
+        0,
+        -4
+      ],
+      "team": 0
+    },
+    {
+      "id": "dropper-2-a",
+      "kind": "generator",
+      "position": [
+        7,
+        0,
+        -10
+      ],
+      "amount": 2,
+      "every": 2,
+      "autoCollect": false
+    },
+    {
+      "id": "dropper-2-b",
+      "kind": "generator",
+      "position": [
+        13,
+        0,
+        -10
+      ],
+      "amount": 3,
+      "every": 2,
+      "autoCollect": false,
+      "hidden": true
+    },
+    {
+      "id": "collect-2",
+      "kind": "collector",
+      "position": [
+        10,
+        0,
+        -7
+      ],
+      "radius": 1.1
+    },
+    {
+      "id": "buy-2-b",
+      "kind": "shop",
+      "position": [
+        13,
+        0,
+        -7
+      ],
+      "label": "2nd dropper",
+      "price": 25,
+      "repeat": false,
+      "priceStep": 0,
+      "radius": 0.8
+    },
+    {
+      "id": "buy-2-up",
+      "kind": "shop",
+      "position": [
+        7,
+        0,
+        -7
+      ],
+      "label": "Faster drops",
+      "price": 30,
+      "repeat": true,
+      "priceStep": 30,
+      "radius": 0.8
+    },
+    {
+      "id": "buy-2-crown",
+      "kind": "shop",
+      "position": [
+        10,
+        0,
+        -14
+      ],
+      "label": "Crown",
+      "price": 300,
+      "repeat": false,
+      "priceStep": 0,
+      "radius": 0.9,
+      "hidden": true
+    },
+    {
+      "id": "crown-2",
+      "kind": "box",
+      "position": [
+        10,
+        0.9,
+        -16
+      ],
+      "size": [
+        1.2,
+        1.8,
+        1.2
+      ],
+      "solid": true,
+      "color": "#8ec5ff",
+      "hidden": true,
+      "finish": "glossy"
+    },
+    {
+      "id": "sign-crown-2",
+      "kind": "sign",
+      "position": [
+        10,
+        0,
+        -10
+      ],
+      "text": "Crown built! Your plot is the talk of the island.",
+      "radius": 0
+    },
+    {
+      "id": "plot-3",
+      "kind": "plot",
+      "position": [
+        -10,
+        0,
+        10
+      ],
+      "number": 3,
+      "size": [
+        16,
+        6,
+        16
+      ]
+    },
+    {
+      "id": "yard-3",
+      "kind": "box",
+      "position": [
+        -10,
+        -0.47,
+        10
+      ],
+      "size": [
+        15,
+        1,
+        15
+      ],
+      "solid": true,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "start-3",
+      "kind": "spawnpad",
+      "position": [
+        -10,
+        0,
+        4
+      ],
+      "team": 0
+    },
+    {
+      "id": "dropper-3-a",
+      "kind": "generator",
+      "position": [
+        -13,
+        0,
+        10
+      ],
+      "amount": 2,
+      "every": 2,
+      "autoCollect": false
+    },
+    {
+      "id": "dropper-3-b",
+      "kind": "generator",
+      "position": [
+        -7,
+        0,
+        10
+      ],
+      "amount": 3,
+      "every": 2,
+      "autoCollect": false,
+      "hidden": true
+    },
+    {
+      "id": "collect-3",
+      "kind": "collector",
+      "position": [
+        -10,
+        0,
+        7
+      ],
+      "radius": 1.1
+    },
+    {
+      "id": "buy-3-b",
+      "kind": "shop",
+      "position": [
+        -7,
+        0,
+        7
+      ],
+      "label": "2nd dropper",
+      "price": 25,
+      "repeat": false,
+      "priceStep": 0,
+      "radius": 0.8
+    },
+    {
+      "id": "buy-3-up",
+      "kind": "shop",
+      "position": [
+        -13,
+        0,
+        7
+      ],
+      "label": "Faster drops",
+      "price": 30,
+      "repeat": true,
+      "priceStep": 30,
+      "radius": 0.8
+    },
+    {
+      "id": "buy-3-crown",
+      "kind": "shop",
+      "position": [
+        -10,
+        0,
+        14
+      ],
+      "label": "Crown",
+      "price": 300,
+      "repeat": false,
+      "priceStep": 0,
+      "radius": 0.9,
+      "hidden": true
+    },
+    {
+      "id": "crown-3",
+      "kind": "box",
+      "position": [
+        -10,
+        0.9,
+        16
+      ],
+      "size": [
+        1.2,
+        1.8,
+        1.2
+      ],
+      "solid": true,
+      "color": "#ff8a7a",
+      "hidden": true,
+      "finish": "glossy"
+    },
+    {
+      "id": "sign-crown-3",
+      "kind": "sign",
+      "position": [
+        -10,
+        0,
+        10
+      ],
+      "text": "Crown built! Your plot is the talk of the island.",
+      "radius": 0
+    },
+    {
+      "id": "plot-4",
+      "kind": "plot",
+      "position": [
+        10,
+        0,
+        10
+      ],
+      "number": 4,
+      "size": [
+        16,
+        6,
+        16
+      ]
+    },
+    {
+      "id": "yard-4",
+      "kind": "box",
+      "position": [
+        10,
+        -0.47,
+        10
+      ],
+      "size": [
+        15,
+        1,
+        15
+      ],
+      "solid": true,
+      "color": "#f1d9a3"
+    },
+    {
+      "id": "start-4",
+      "kind": "spawnpad",
+      "position": [
+        10,
+        0,
+        4
+      ],
+      "team": 0
+    },
+    {
+      "id": "dropper-4-a",
+      "kind": "generator",
+      "position": [
+        7,
+        0,
+        10
+      ],
+      "amount": 2,
+      "every": 2,
+      "autoCollect": false
+    },
+    {
+      "id": "dropper-4-b",
+      "kind": "generator",
+      "position": [
+        13,
+        0,
+        10
+      ],
+      "amount": 3,
+      "every": 2,
+      "autoCollect": false,
+      "hidden": true
+    },
+    {
+      "id": "collect-4",
+      "kind": "collector",
+      "position": [
+        10,
+        0,
+        7
+      ],
+      "radius": 1.1
+    },
+    {
+      "id": "buy-4-b",
+      "kind": "shop",
+      "position": [
+        13,
+        0,
+        7
+      ],
+      "label": "2nd dropper",
+      "price": 25,
+      "repeat": false,
+      "priceStep": 0,
+      "radius": 0.8
+    },
+    {
+      "id": "buy-4-up",
+      "kind": "shop",
+      "position": [
+        7,
+        0,
+        7
+      ],
+      "label": "Faster drops",
+      "price": 30,
+      "repeat": true,
+      "priceStep": 30,
+      "radius": 0.8
+    },
+    {
+      "id": "buy-4-crown",
+      "kind": "shop",
+      "position": [
+        10,
+        0,
+        14
+      ],
+      "label": "Crown",
+      "price": 300,
+      "repeat": false,
+      "priceStep": 0,
+      "radius": 0.9,
+      "hidden": true
+    },
+    {
+      "id": "crown-4",
+      "kind": "box",
+      "position": [
+        10,
+        0.9,
+        16
+      ],
+      "size": [
+        1.2,
+        1.8,
+        1.2
+      ],
+      "solid": true,
+      "color": "#c9b3ff",
+      "hidden": true,
+      "finish": "glossy"
+    },
+    {
+      "id": "sign-crown-4",
+      "kind": "sign",
+      "position": [
+        10,
+        0,
+        10
+      ],
+      "text": "Crown built! Your plot is the talk of the island.",
+      "radius": 0
+    }
+  ],
+  "rules": {
+    "mode": "free",
+    "requiredPickupValue": 0,
+    "timeLimitSeconds": 0,
+    "fallBelowY": -8,
+    "startMoney": 0,
+    "persist": true,
+    "weapon": false,
+    "health": 0,
+    "lives": 0,
+    "join": "anytime"
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "tag-island",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Tag Island",
+  "templateId": "free-play-v1",
+  "description": "Party tag over three rounds: walls to dodge round, launch pads and a teleporter. Least time as \"it\" wins. Needs a party.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [],
+  "spawn": [
+    0,
+    0.5,
+    10
+  ],
+  "spawnYaw": 3.141592653589793,
+  "sky": "day",
+  "entities": [
+    {
+      "id": "island",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        0
+      ],
+      "size": [
+        30,
+        1,
+        30
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "mound",
+      "kind": "box",
+      "position": [
+        0,
+        0.5,
+        0
+      ],
+      "size": [
+        6,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#c99a6b"
+    },
+    {
+      "id": "ramp-1",
+      "kind": "prop",
+      "position": [
+        0,
+        0,
+        4.5
+      ],
+      "shape": "ramp",
+      "scale": 1,
+      "color": "#c99a6b"
+    },
+    {
+      "id": "ramp-2",
+      "kind": "prop",
+      "position": [
+        0,
+        0,
+        -4.5
+      ],
+      "shape": "ramp",
+      "scale": 1,
+      "color": "#c99a6b"
+    },
+    {
+      "id": "wall-1",
+      "kind": "box",
+      "position": [
+        -8,
+        1,
+        -6
+      ],
+      "size": [
+        6,
+        2,
+        0.6
+      ],
+      "solid": true,
+      "color": "#ff8a7a"
+    },
+    {
+      "id": "wall-2",
+      "kind": "box",
+      "position": [
+        8,
+        1,
+        6
+      ],
+      "size": [
+        6,
+        2,
+        0.6
+      ],
+      "solid": true,
+      "color": "#8ec5ff"
+    },
+    {
+      "id": "wall-3",
+      "kind": "box",
+      "position": [
+        -6,
+        1,
+        8
+      ],
+      "size": [
+        0.6,
+        2,
+        6
+      ],
+      "solid": true,
+      "color": "#ffd45a"
+    },
+    {
+      "id": "wall-4",
+      "kind": "box",
+      "position": [
+        6,
+        1,
+        -8
+      ],
+      "size": [
+        0.6,
+        2,
+        6
+      ],
+      "solid": true,
+      "color": "#c9b3ff"
+    },
+    {
+      "id": "tree-1",
+      "kind": "prop",
+      "position": [
+        -11,
+        0,
+        11
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-2",
+      "kind": "prop",
+      "position": [
+        11,
+        0,
+        -11
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "rock-1",
+      "kind": "prop",
+      "position": [
+        11,
+        0,
+        11
+      ],
+      "shape": "rock",
+      "scale": 1,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "rock-2",
+      "kind": "prop",
+      "position": [
+        -11,
+        0,
+        -11
+      ],
+      "shape": "rock",
+      "scale": 1,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "pad-1",
+      "kind": "launcher",
+      "position": [
+        -12,
+        0,
+        0
+      ],
+      "radius": 0.9,
+      "up": 13,
+      "forward": 6
+    },
+    {
+      "id": "pad-2",
+      "kind": "launcher",
+      "position": [
+        12,
+        0,
+        0
+      ],
+      "radius": 0.9,
+      "up": 13,
+      "forward": 6
+    },
+    {
+      "id": "tp-1",
+      "kind": "teleporter",
+      "position": [
+        0,
+        0,
+        12
+      ],
+      "radius": 0.8,
+      "to": [
+        0,
+        0.5,
+        -12
+      ]
+    },
+    {
+      "id": "tp-2",
+      "kind": "teleporter",
+      "position": [
+        0,
+        0,
+        -13
+      ],
+      "radius": 0.8,
+      "to": [
+        0,
+        0.5,
+        11
+      ]
+    },
+    {
+      "id": "tag",
+      "kind": "tag",
+      "position": [
+        13,
+        0,
+        13
+      ],
+      "mode": "tag",
+      "seconds": 90,
+      "hideSeconds": 0
+    },
+    {
+      "id": "rounds",
+      "kind": "rounds",
+      "position": [
+        13,
+        0,
+        11
+      ],
+      "rounds": 3,
+      "countdown": 3,
+      "intermission": 5,
+      "scoring": "points"
+    },
+    {
+      "id": "spawn-1",
+      "kind": "spawnpad",
+      "position": [
+        -4,
+        0,
+        10
+      ],
+      "team": 0
+    },
+    {
+      "id": "spawn-2",
+      "kind": "spawnpad",
+      "position": [
+        4,
+        0,
+        10
+      ],
+      "team": 0
+    },
+    {
+      "id": "spawn-3",
+      "kind": "spawnpad",
+      "position": [
+        -4,
+        0,
+        -10
+      ],
+      "team": 0
+    },
+    {
+      "id": "spawn-4",
+      "kind": "spawnpad",
+      "position": [
+        4,
+        0,
+        -10
+      ],
+      "team": 0
+    },
+    {
+      "id": "sign-1",
+      "kind": "sign",
+      "position": [
+        7,
+        0,
+        10
+      ],
+      "text": "Party tag! If you are it, run into someone to tag them. Least time as it wins.",
+      "radius": 2.5
+    }
+  ],
+  "rules": {
+    "mode": "free",
+    "requiredPickupValue": 0,
+    "timeLimitSeconds": 0,
+    "fallBelowY": -6,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": false,
+    "health": 0,
+    "lives": 0,
+    "join": "nextRound"
+  }
+}

@@ -1,0 +1,552 @@
+{
+  "schemaVersion": "0.1",
+  "gameId": "seed-squad",
+  "version": 1,
+  "runtimeCompatibility": "0.1",
+  "title": "Seed Squad",
+  "templateId": "free-play-v1",
+  "description": "Three rounds of 45 seconds: grab seeds for your team. Points add up over the rounds. Best with a party.",
+  "characterAssetId": "vop-yellow-static-v1",
+  "bounds": {
+    "min": [
+      -50,
+      -15,
+      -50
+    ],
+    "max": [
+      50,
+      40,
+      50
+    ]
+  },
+  "credits": [
+    {
+      "partyId": "vop-first-party",
+      "role": "designer"
+    }
+  ],
+  "wires": [
+    {
+      "from": "seed-1",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-2",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-3",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-4",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-5",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-6",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-7",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-8",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-9",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-10",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-11",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-12",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-13",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-14",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "seed-15",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 10
+    },
+    {
+      "from": "high-1",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 30
+    },
+    {
+      "from": "high-2",
+      "event": "collected",
+      "to": "points",
+      "action": "award",
+      "value": 30
+    }
+  ],
+  "spawn": [
+    0,
+    0.5,
+    12
+  ],
+  "spawnYaw": 3.141592653589793,
+  "sky": "day",
+  "entities": [
+    {
+      "id": "arena",
+      "kind": "box",
+      "position": [
+        0,
+        -0.5,
+        0
+      ],
+      "size": [
+        30,
+        1,
+        30
+      ],
+      "solid": true,
+      "color": "#8fd06b"
+    },
+    {
+      "id": "mid",
+      "kind": "box",
+      "position": [
+        0,
+        1,
+        0
+      ],
+      "size": [
+        6,
+        1,
+        6
+      ],
+      "solid": true,
+      "color": "#c99a6b"
+    },
+    {
+      "id": "stairs-mid",
+      "kind": "prop",
+      "position": [
+        0,
+        0,
+        4.5
+      ],
+      "shape": "stairs",
+      "scale": 1,
+      "color": "#c3cbd8"
+    },
+    {
+      "id": "ledge-1",
+      "kind": "box",
+      "position": [
+        -11,
+        3.5,
+        -11
+      ],
+      "size": [
+        4,
+        1,
+        4
+      ],
+      "solid": true,
+      "color": "#c9b3ff"
+    },
+    {
+      "id": "ledge-2",
+      "kind": "box",
+      "position": [
+        11,
+        3.5,
+        11
+      ],
+      "size": [
+        4,
+        1,
+        4
+      ],
+      "solid": true,
+      "color": "#c9b3ff"
+    },
+    {
+      "id": "pad-1",
+      "kind": "launcher",
+      "position": [
+        -8,
+        0,
+        -8
+      ],
+      "radius": 0.9,
+      "up": 17,
+      "forward": 3
+    },
+    {
+      "id": "pad-2",
+      "kind": "launcher",
+      "position": [
+        8,
+        0,
+        8
+      ],
+      "radius": 0.9,
+      "up": 17,
+      "forward": 3
+    },
+    {
+      "id": "rounds",
+      "kind": "rounds",
+      "position": [
+        13,
+        0,
+        -13
+      ],
+      "rounds": 3,
+      "countdown": 3,
+      "intermission": 5,
+      "scoring": "points"
+    },
+    {
+      "id": "teams",
+      "kind": "teams",
+      "position": [
+        13,
+        0,
+        -11
+      ],
+      "teams": 2,
+      "shareScore": true
+    },
+    {
+      "id": "spawn-red-1",
+      "kind": "spawnpad",
+      "position": [
+        -12,
+        0,
+        12
+      ],
+      "team": 1
+    },
+    {
+      "id": "spawn-red-2",
+      "kind": "spawnpad",
+      "position": [
+        -10,
+        0,
+        12
+      ],
+      "team": 1
+    },
+    {
+      "id": "spawn-blue-1",
+      "kind": "spawnpad",
+      "position": [
+        12,
+        0,
+        -12
+      ],
+      "team": 2
+    },
+    {
+      "id": "spawn-blue-2",
+      "kind": "spawnpad",
+      "position": [
+        10,
+        0,
+        -12
+      ],
+      "team": 2
+    },
+    {
+      "id": "points",
+      "kind": "score",
+      "position": [
+        -13,
+        0,
+        -13
+      ],
+      "label": "Points",
+      "points": 10,
+      "target": 0,
+      "hud": true
+    },
+    {
+      "id": "sign-1",
+      "kind": "sign",
+      "position": [
+        -8,
+        0,
+        12
+      ],
+      "text": "Three rounds of 45 seconds. Seeds are 10 points, the high ones 30. Your team's points add up.",
+      "radius": 2.5
+    },
+    {
+      "id": "tree-1",
+      "kind": "prop",
+      "position": [
+        -13,
+        0,
+        0
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "tree-2",
+      "kind": "prop",
+      "position": [
+        13,
+        0,
+        2
+      ],
+      "shape": "tree",
+      "scale": 1,
+      "color": "#5fb55a"
+    },
+    {
+      "id": "seed-1",
+      "kind": "pickup",
+      "position": [
+        -6,
+        0.6,
+        -2
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-2",
+      "kind": "pickup",
+      "position": [
+        6,
+        0.6,
+        2
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-3",
+      "kind": "pickup",
+      "position": [
+        -2,
+        0.6,
+        9
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-4",
+      "kind": "pickup",
+      "position": [
+        2,
+        0.6,
+        -9
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-5",
+      "kind": "pickup",
+      "position": [
+        -10,
+        0.6,
+        4
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-6",
+      "kind": "pickup",
+      "position": [
+        10,
+        0.6,
+        -4
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-7",
+      "kind": "pickup",
+      "position": [
+        -4,
+        0.6,
+        -12
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-8",
+      "kind": "pickup",
+      "position": [
+        4,
+        0.6,
+        12
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-9",
+      "kind": "pickup",
+      "position": [
+        -12,
+        0.6,
+        -5
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-10",
+      "kind": "pickup",
+      "position": [
+        12,
+        0.6,
+        5
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-11",
+      "kind": "pickup",
+      "position": [
+        0,
+        2.1,
+        0
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-12",
+      "kind": "pickup",
+      "position": [
+        -1.5,
+        2.1,
+        1.5
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-13",
+      "kind": "pickup",
+      "position": [
+        1.5,
+        2.1,
+        -1.5
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-14",
+      "kind": "pickup",
+      "position": [
+        -7,
+        0.6,
+        7
+      ],
+      "value": 1
+    },
+    {
+      "id": "seed-15",
+      "kind": "pickup",
+      "position": [
+        7,
+        0.6,
+        -7
+      ],
+      "value": 1
+    },
+    {
+      "id": "high-1",
+      "kind": "pickup",
+      "position": [
+        -11,
+        4.6,
+        -11
+      ],
+      "value": 1
+    },
+    {
+      "id": "high-2",
+      "kind": "pickup",
+      "position": [
+        11,
+        4.6,
+        11
+      ],
+      "value": 1
+    }
+  ],
+  "rules": {
+    "mode": "free",
+    "requiredPickupValue": 0,
+    "timeLimitSeconds": 45,
+    "fallBelowY": -6,
+    "startMoney": 0,
+    "persist": false,
+    "weapon": false,
+    "health": 0,
+    "lives": 0,
+    "join": "nextRound"
+  }
+}
